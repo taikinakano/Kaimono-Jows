@@ -1,3 +1,75 @@
 // Place all the styles related to the homs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.top-box {
+  border: 4px #fff solid;
+}
+.top-image1 {
+  height: 750px;
+}
+
+.text-jaws {
+  font-size: 50px;
+  font-family: "Open Sans", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+}
+
+.text-easy {
+  font-family: "Open Sans", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+}
+.image {
+  background-image: url("shark2.png");
+  background-size: contain;
+  height: 65px;
+  width: 90px;
+}
+.top-image2 {
+  background-image: url("memo.png");
+  background-size: cover;
+  height: 750px;
+  width: 50%;
+}
+
+.memo-image {
+  background-image: url("notepad.png");
+  background-size: contain;
+  height: 100px;
+  width: 105px;
+}
+
+.arrow-image {
+  background-image: url("arrow.png");
+  background-size: contain;
+  height: 50px;
+  width: 95px;
+}
+
+.shop-image {
+  background-image: url("shop.png");
+  background-size: contain;
+  height: 100px;
+  width: 100px;
+}
+.text-top {
+ margin-top: 30%;
+}
+
+.setuyaku {
+  background-color: rgba( 0, 0, 0, 0.5);
+  width: 90%;
+  border-radius: 20% 20% 20% 20%;
+}
