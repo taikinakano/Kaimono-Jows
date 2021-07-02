@@ -16,9 +16,20 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
-header{
-  width: 100%;
-  height: 100px;
+
+.image-jaws {
+  background-image: url("shark2.png");
+  background-size: contain;
+  height: 40px;
+  width: 56px;
+}
+
+.text-rogo {
+  font-family: "Open Sans", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+}
+
+.text-sbrogo {
+  font-family: "Open Sans", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 }
 
 footer {

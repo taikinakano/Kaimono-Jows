@@ -15,14 +15,21 @@ body {
   height: 100%;
   margin: 0;
 }
+
+.top-box {
+  border: 4px #fff solid;
+}
 .top-image1 {
   height: 750px;
-  /*background-image: url("memo.png");*/
-
 }
 
 .text-jaws {
   font-size: 50px;
+  font-family: "Open Sans", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+}
+
+.text-easy {
+  font-family: "Open Sans", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 }
 .image {
   background-image: url("shark2.png");
