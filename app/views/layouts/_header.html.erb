@@ -4,5 +4,17 @@
     <h4 class="text-rogo text-light">KAIMONO JAWS</h4>
       <p class="text-sbrogo text-light">EASY TO USE NOTEPAD</p>
     </div>
+    <ul class="d-flex">
+      <% if user_signed_in? %>
+      <li><%= link_to "他人の投稿を見る" %></li>
+      <li><%= link_to "料理一覧" %></li>
+      <li><%= link_to "メモを使う", user_path(current_user) %></li>
+       <li><%= button_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+      <li><%= link_to "詳しく見る"%></li>
+      <li><%= link_to "新規登録",  new_user_registration_path %></li>
+      <li><%= link_to "ログイン", new_user_session_path %></li>
+      <% end %>
+    </ul>
     </div>
 </nav>
