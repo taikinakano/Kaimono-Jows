@@ -10,5 +10,8 @@ Rails.application.routes.draw do
   patch 'withdrow'
   end
   end
+
+  resources :genre, only:[:edit, :new, :create, :update, :destroy ]
+  resources :product, only:[:new, :create, :show, :index, :edit, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
