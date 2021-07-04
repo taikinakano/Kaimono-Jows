@@ -40,7 +40,11 @@
          <%= attachment_image_tag shop, :image, size: '200x150', formate: 'jpeg', fallback: "no_iamge.jpeg" %>
          <% end %>
          </td>
-         <td><%= shop.shop_name %></td>
+         <td>
+           <%= link_to shop_products_path(shop.id) do %>
+           <%= shop.shop_name %>
+           <% end %>
+          </td>
          <td><%= shop.address %></td>
          <td><%= link_to "編集する", edit_shop_path(shop.id) %></td>
          <% if @user == current_user %>

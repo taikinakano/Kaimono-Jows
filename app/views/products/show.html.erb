@@ -1,0 +1,8 @@
+<h4>商品詳細</h4>
+<%= attachment_image_tag @product, :image, size: '100x100', formate: 'jpeg', fallback: "no_image.jpeg" %>
+<table class="table table-borderless">
+  <tr><th>商品名</th></tr><tr><td><%= @product.product_name %></td></tr>
+  <tr><th>商品メモ</th></tr><tr><td><%= @product.product_memo %></td></tr>
+  <tr><th>ジャンル</th></tr><tr><td><%#= @genre.products.name %></td></tr>
+  <tr><th>価格</th></tr><tr><td><%= @product.price %></td></tr>
+</table>
