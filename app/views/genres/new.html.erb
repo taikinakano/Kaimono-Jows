@@ -20,8 +20,8 @@
     <% @genres.each do |genres| %>
     <tr>
       <td><%= genres.name %></td>
-      <td><%= link_to "編集" %></td>
-      <td><%= link_to "削除" %></td>
+      <td><%= link_to "編集", edit_shop_genre_path(@shop, genres) %></td>
+      <td><%= link_to "削除", shop_genre_path(@shop, genres), method: :delete %></td>
     </tr>
     <% end %>
   </tbody>

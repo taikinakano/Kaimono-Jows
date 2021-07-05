@@ -17,9 +17,27 @@ class GenresController < ApplicationController
     end
   end
 
+  def edit
+    @shop = Shop.find(params[:shop_id])
+    @genre = @shop.genres.find(params[:id])
+  end
+
+  def update
+    @shop = Shop.find(params[:shop_id])
+    @genre = @shop.genres.find(params[:id])
+    @genre.update(genre_params)
+    redirect_to new_shop_genre_path
+  end
+
+  def destroy
+    @shop = Shop.find(params[:shop_id])
+    @genre = @shop.genres.find(params[:id])
+    @genre.destroy
+    redirect_to new_shop_genre_path
+  end
   private
 
   def genre_params
-    params.require(:genre).permit(:shop_id, :name, :created_at, :updated_at)
+    params.require(:genre).permit(:name, :created_at, :updated_at)
   end
 end

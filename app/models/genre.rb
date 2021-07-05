@@ -1,4 +1,3 @@
 class Genre < ApplicationRecord
-  belongs_to :product, optional: true
-  belongs_to :shop
+  has_many :products, dependent: :destroy
 end

@@ -8,7 +8,6 @@ class ProductsController < ApplicationController
   def show
     @shop = Shop.find(params[:shop_id])
     @product = @shop.products.find(params[:id])
-    #@genre = @shop.genre.all
   end
 
   def index
@@ -21,6 +20,25 @@ class ProductsController < ApplicationController
     @product = @shop.products.new(product_params)
     @product.save
     redirect_to shop_products_path(@shop)
+  end
+
+  def edit
+    @shop = Shop.find(params[:shop_id])
+    @product = @shop.products.find(params[:id])
+  end
+
+  def update
+    @shop = Shop.find(params[:shop_id])
+    @product = @shop.products.find(params[:id])
+    @product.update(product_params)
+    redirect_to shop_products_path
+  end
+
+  def destroy
+    @shop = Shop.find(params[:shop_id])
+    @product = @shop.products.find(params[:id])
+    @product.destroy
+    redirect_to shop_products_path
   end
 
   private

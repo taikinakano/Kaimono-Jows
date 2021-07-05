@@ -1,8 +1,29 @@
-<h4>商品詳細</h4>
-<%= attachment_image_tag @product, :image, size: '100x100', formate: 'jpeg', fallback: "no_image.jpeg" %>
-<table class="table table-borderless">
-  <tr><th>商品名</th></tr><tr><td><%= @product.product_name %></td></tr>
-  <tr><th>商品メモ</th></tr><tr><td><%= @product.product_memo %></td></tr>
-  <tr><th>ジャンル</th></tr><tr><td><%#= @genre.products.name %></td></tr>
-  <tr><th>価格</th></tr><tr><td><%= @product.price %></td></tr>
-</table>
+<div class="container">
+  <div class="w-75 mx-auto mt-4">
+  <h4>商品詳細</h4>
+　<div class="d-flex wrap">
+  <div>
+   <%= attachment_image_tag @product, :image, size: '100x100', formate: 'jpeg', fallback: "no_image.jpeg" %>
+  </div>
+  <div>
+   <table class="table table-borderless">
+      <tr><th>商品名</th></tr><tr><td><%= @product.product_name %></td></tr>
+      <tr><th>商品メモ</th></tr><tr><td><%= @product.product_memo %></td></tr>
+      <tr><th>ジャンル</th></tr><tr><td><%= @product.genre.name %></td></tr>
+      <tr><th>価格</th></tr><tr><td><%= @product.price %></td></tr>
+   </table>
+   <div class="d-flex wrap">
+   <div>
+   <%= link_to "編集", edit_shop_product_path %>
+   </div>
+   <div>
+     <%= link_to "削除", shop_product_path(@shop, @product), method: :delete %>
+   </div>
+   <div>
+     <%= link_to "戻る", shop_products_path %>
+   </div>
+   </div>
+　</div>
+　</div>
+　</div>
+</div>

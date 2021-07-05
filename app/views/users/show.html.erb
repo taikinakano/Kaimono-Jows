@@ -46,8 +46,8 @@
            <% end %>
           </td>
          <td><%= shop.address %></td>
-         <td><%= link_to "編集する", edit_shop_path(shop.id) %></td>
          <% if @user == current_user %>
+         <td><%= link_to "編集する", edit_shop_path(shop.id) %></td>
          <td><%= link_to "削除する", shop_path(shop.id), method: :delete %></td>
          <% end %>
        </tr>
