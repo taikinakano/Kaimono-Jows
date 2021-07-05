@@ -1,0 +1,29 @@
+<div class="container">
+<h4 class="my-4">商品ジャンル登録</h4>
+  <%= form_with model: [@shop, @genre], local:true do |f| %>
+<div class="d-flex wrap">
+<div>商品ジャンル</div>
+<div><%= f.text_field :name %></div>
+</div>
+<div><%= f.submit "新規登録" %></div>
+<div><%= link_to "戻る", shop_products_path(@shop.id) %></div>
+<% end %>
+  <table class="table">
+  <thead class="thead-dark">
+    <tr>
+    <th>ジャンル名</th>
+    <th></th>
+    <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @genres.each do |genres| %>
+    <tr>
+      <td><%= genres.name %></td>
+      <td><%= link_to "編集", edit_shop_genre_path(@shop, genres) %></td>
+      <td><%= link_to "削除", shop_genre_path(@shop, genres), method: :delete %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
