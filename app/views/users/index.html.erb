@@ -7,6 +7,7 @@
       <th>会員画像</th>
       <th>会員名</th>
       <th>紹介文</th>
+      <th></th>
       </tr>
      </thead>
      <tbody>
@@ -23,6 +24,7 @@
            <% end %>
           </td>
           <td><%= users.introduction %></td>
+          <td><%= render "users/info", user: users %></td>
        </tr>
        <% end %>
        <%= paginate @users %>
