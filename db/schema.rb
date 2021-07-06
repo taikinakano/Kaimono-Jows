@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_05_110945) do
+ActiveRecord::Schema.define(version: 2021_07_06_013059) do
 
   create_table "cooks", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(version: 2021_07_05_110945) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["id"], name: "index_products_on_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id", null: false
+    t.integer "followed_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id"], name: "index_relationships_on_id"
   end
 
   create_table "shops", force: :cascade do |t|

@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'withdrow_confirm'
   patch 'withdrow'
   end
+   resource :relationships, only: [:create, :destroy]
+   get 'followings' => 'relationships#followings', as: 'followings'
+   get 'followers' => 'relationships#followers' ,as: 'followers'
   end
   resources :cooks, only:[:index, :show, :create, :edit, :update, :destroy]
 
