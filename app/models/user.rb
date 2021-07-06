@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :shops, dependent: :destroy
-  #has_many :products, dependent: :destroy
+  has_many :cooks, dependent: :destroy
   attachment :image
 end

@@ -2,7 +2,7 @@
   <div>
     <div>
     <h4>利用者名</h4>
-    <%= attachment_image_tag @user, :image_id, :fill, size: '100x100', format: 'jpeg', fallback: "no_image.jpeg" %>
+    <%= attachment_image_tag @user, :image, :fill, size: '100x100', format: 'jpeg', fallback: "no_image.jpeg" %>
     <%= @user.name %>
     <%= @user.introduction %>
     <%= link_to "編集", edit_user_path %>

@@ -7,7 +7,7 @@ class CreateShops < ActiveRecord::Migration[5.2]
       t.text :comment, null: false
       t.datetime :createe_at, null: false
       t.datetime :updated_at, null: false
-
+      
       t.timestamps
     end
   end
