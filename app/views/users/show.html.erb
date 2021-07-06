@@ -1,69 +1,9 @@
-<div class="container d-flex wrap">
+<div class="container d-flex wrap mt-5">
   <div>
-    <div class="my-4">
-    <h4>利用者名</h4>
-    <div class="d-flex wrap">
-      <div>
-       <%= attachment_image_tag @user, :image, :fill, size: '100x100', format: 'jpeg', fallback: "no_image.jpeg" %>
-      </div>
-      <div class="ml-4">
-      <div>利用者名：<%= @user.name %></div>
-       <div class="my-3">紹介文：<%= @user.introduction %></div>
-       <div>
-      <%= render "users/info", user: @user %>
-      <%= link_to "編集", edit_user_path %>
-       </div>
-      </div>
-    </div> <!-- 利用者以下　div -->
-    </div> <!-- ユーザーdiv -->
-    <div>
-      <h4>店舗登録</h4>
-      <table class="table table-borderless">
-        <%= form_with model: @shop, local:true do |f| %>
-       <tr><th>店舗画像</th><th><%= f.attachment_field :image, placeholder: "ファイルを選択" %></th></tr>
-       <tr><th>店舗名</th><th><%= f.text_field :shop_name %></th></tr>
-       <tr><td>住所</td><td><%=f.text_field :address %></td></tr>
-       <tr><td>店舗コメント</td><td><%= f.text_field :comment %></td></tr>
-       <tr><td><%= f.submit "新規登録" %></td></tr>
-       <% end %>
-     </table>
-    </div>
+   <%= render "users/user-info", user: @user %>
+   <%= render "shops/shop-new", shop: @shop %>
   </div>
-
   <div>
-    <h4>登録されている店舗</h4>
-     <table class="table">
-      <thead class="thead-dark">
-      <tr>
-      <th>店舗画像</th>
-      <th>店舗名</th>
-      <th>住所</th>
-      <th></th>
-      </tr>
-     </thead>
-     <tbody>
-       <% @shops.each do |shop| %>
-       <tr>
-         <td>
-         <%= link_to shop_path(shop.id) do %>
-         <%= attachment_image_tag shop, :image, size: '200x150', formate: 'jpeg', fallback: "no_iamge.jpeg" %>
-         <% end %>
-         </td>
-         <td>
-           <%= link_to shop_products_path(shop.id) do %>
-           <%= shop.shop_name %>
-           <% end %>
-          </td>
-         <td><%= shop.address %></td>
-         <% if @user == current_user %>
-         <td><%= link_to "編集する", edit_shop_path(shop.id) %></td>
-         <td><%= link_to "削除する", shop_path(shop.id), method: :delete %></td>
-         <% end %>
-       </tr>
-       <% end %>
-       <%= paginate @shops %>
-     </tbody>
-
-    </table>
+   <%= render "shops/my-shop", shops: @shops %>
   </div>
 </div>

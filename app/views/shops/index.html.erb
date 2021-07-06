@@ -13,12 +13,12 @@
        <% @shops.each do |shops| %>
        <tr>
          <td>
-         <%= link_to user_path(shops.id) do %>
+         <%= link_to shop_path(shops.id) do %>
          <%= attachment_image_tag shops, :image, size: '200x150', formate: 'jpeg', fallback: "no_iamge.jpeg" %>
          <% end %>
          </td>
          <td>
-           <%= link_to user_path(shops.id) do %>
+           <%= link_to shop_path(shops.id) do %>
            <%= shops.shop_name %>
            <% end %>
           </td>
