@@ -1,7 +1,20 @@
-<h4>商品詳細</h4>
-<%= attachment_image_tag @shop, :image, size: '100x100', formate: 'jpeg', fallback: "no_image.jpeg" %>
-<table class="table table-borderless">
-  <tr><th>店舗名</th></tr><tr><td><%= @shop.shop_name %></td></tr>
-  <tr><th>住所</th></tr><tr><td><%= @shop.address %></td></tr>
-  <tr><th>店舗コメント</th></tr><tr><td><%= @shop.comment %></td></tr>
-</table>
+<div class="container mt-5">
+<div class="d-flex wrap mx-auto w-75">
+  <div>
+  <h4>商品詳細</h4>
+  <%= image_tag attachment_url(@shop, :image, :fill, 300, 300, fallback: "no_image.jpeg"), size:'200x200' %>
+  </div>
+  <div class="ml-3 mt-3">
+  <table class="table table-borderless">
+    <tr><th>店舗名</th><td><%= @shop.shop_name %></td></tr>
+    <tr><th>住所</th><td><%= @shop.address %></td></tr>
+    <tr><th>店舗メモ</th><td><%= @shop.comment %></td></tr>
+    <tr><th></th><td><%= render "shops/favorite", shop: @shop %></td></tr>
+  </table>
+  <div>
+    <%= link_to "戻る", user_path(current_user.id) %>
+
+  </div>
+  </div>
+</div>
+</div>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :shops, only:[:index, :show, :create, :edit, :update, :destroy] do
    resources :products
    resources :genres, only:[:new, :edit, :create, :update, :destroy ]
+   resource :favorites, only: [:create, :destroy]
   end
   resources :users, only:[:show, :index, :create, :update, :edit, :destroy] do
   member do

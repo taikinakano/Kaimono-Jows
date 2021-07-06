@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       @room = Room.new
       @entry = Entry.new
     end
-    end
+    end#メッセージ機能
   end
 
   def create

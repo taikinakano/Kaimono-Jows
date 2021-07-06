@@ -3,14 +3,14 @@
   <h4>商品詳細</h4>
 　<div class="d-flex wrap">
   <div>
-   <%= attachment_image_tag @product, :image, size: '100x100', formate: 'jpeg', fallback: "no_image.jpeg" %>
+   <%= image_tag attachment_url(@product, :image, :fill, 200, 200, fallback: "no_image.jpeg"), size:'200x200' %>
   </div>
-  <div>
+  <div class="ml-3">
    <table class="table table-borderless">
-      <tr><th>商品名</th></tr><tr><td><%= @product.product_name %></td></tr>
-      <tr><th>商品メモ</th></tr><tr><td><%= @product.product_memo %></td></tr>
-      <tr><th>ジャンル</th></tr><tr><td><%= @product.genre.name %></td></tr>
-      <tr><th>価格</th></tr><tr><td><%= @product.price %></td></tr>
+      <tr><th>商品名</th><td><%= @product.product_name %></td></tr>
+      <tr><th>商品メモ</th><td><%= @product.product_memo %></td></tr>
+      <tr><th>ジャンル</th><td><%= @product.genre.name %></td></tr>
+      <tr><th>価格</th><td><%= @product.price %></td></tr>
    </table>
    <div class="d-flex wrap">
    <div>
