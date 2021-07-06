@@ -12,7 +12,7 @@ class ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
     @shop.save
-    redirect_to user_path(current_user.id)
+    redirect_to shop_path(@shop.id)
   end
 
   def edit
