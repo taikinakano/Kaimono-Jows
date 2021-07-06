@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_04_111834) do
+ActiveRecord::Schema.define(version: 2021_07_05_110945) do
+
+  create_table "cooks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "cook_name", null: false
+    t.string "image_id", null: false
+    t.text "cook_method", null: false
+    t.text "cook_material", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "created_at", null: false
+    t.index ["id"], name: "index_cooks_on_id"
+  end
 
   create_table "genres", force: :cascade do |t|
     t.string "name", null: false

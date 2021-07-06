@@ -1,0 +1,22 @@
+<div class="container">
+ <div class="mt-4 mx-auto w-75">
+  <h4>商品詳細</h4>
+   <div class="d-flex wrap">
+   <div>
+     <%= attachment_image_tag @cook, :image, size: '200x200', formate: 'jpeg', fallback: "no_image.jpeg" %>
+   </div>
+   <div>
+   <table class="table table-borderless">
+    <tr><th>料理名</th></tr><tr><td><%= @cook.cook_name %></td></tr>
+    <tr><th>材料</th></tr><tr><td><%= @cook.cook_material %></td></tr>
+    <tr><th>作り方</th></tr><tr><td><%= @cook.cook_method %></td></tr>
+   </table>
+     <%= link_to "戻る", cooks_path %>
+    <% if @user == current_user %>
+     <%= link_to "編集する", edit_cook_path(@cook.id) %>
+     <%= link_to "削除する", cook_path(@cook.id), method: :delete %>
+    <% end %>
+    </div>
+   </div>
+  </div>
+</div>
