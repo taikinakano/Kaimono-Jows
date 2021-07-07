@@ -6,14 +6,18 @@
   </div>
   <div class="ml-3 mt-3">
   <table class="table table-borderless">
-    <tr><th>店舗名</th><td><%= @shop.shop_name %></td></tr>
+    <tr><th>店舗名</th>
+    <td>
+    <%= link_to shop_products_path(@shop.id)  do %>
+    <%= @shop.shop_name %>
+    <% end %></td>
+    </tr>
     <tr><th>住所</th><td><%= @shop.address %></td></tr>
     <tr><th>店舗メモ</th><td><%= @shop.comment %></td></tr>
     <tr><th></th><td><%= render "shops/favorite", shop: @shop %></td></tr>
   </table>
   <div>
     <%= link_to "戻る", user_path(current_user.id) %>
-
   </div>
   </div>
 </div>
