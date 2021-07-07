@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :entries, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
+  has_many :shop_comments, dependent: :destroy
   attachment :image
   attachment :bgimage
 
