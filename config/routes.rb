@@ -4,24 +4,27 @@ Rails.application.routes.draw do
   root to: 'homs#top'
   get 'homs/about'
   get 'homs/mypage'
-  resources :shops, only:[:index, :show, :create, :edit, :update, :destroy] do
+  get '/search', to: 'searchs#search'
+  get 'searchs/searches'
+  
+  resources :shops,          only:[:index, :show, :create, :edit, :update, :destroy] do
    resources :products
-   resources :genres, only:[:new, :edit, :create, :update, :destroy ]
-   resource :favorites, only: [:create, :destroy]
-   resource :bookmarks, only: [:create, :destroy]
+   resources :genres,        only:[:new, :edit, :create, :update, :destroy ]
+   resources :shop_comments, only:[:create, :destroy]
+   resource :favorites,      only: [:create, :destroy]
+   resource :bookmarks,      only: [:create, :destroy]
   end
-  resources :users, only:[:show, :index, :create, :update, :edit, :destroy] do
+  resources :users,          only:[:show, :index, :create, :update, :edit, :destroy] do
   member do
   get 'withdrow_confirm'
   patch 'withdrow'
   end
-   resource :relationships, only: [:create, :destroy]
+   resource :relationships,  only: [:create, :destroy]
    get 'followings' => 'relationships#followings', as: 'followings'
    get 'followers' => 'relationships#followers' ,as: 'followers'
   end
 
-  get '/search', to: 'searchs#search'
-  get 'searchs/searches'
+
 
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :show]
