@@ -1,5 +1,16 @@
     <div class="container">
     <div class="mt-4">
+    <div class="container mt-3">
+    <div class="search-form text-right">
+      <%= form_with url: searchs_searches_path, method: :get, local: true do |f| %>
+        <%= f.text_field :content %>
+        <%= f.select :model , options_for_select({ "店舗名" => "shop_name", "住所" => "address" }) %>
+        <button type="submit" class="btn btn-sm btn-secondary">
+          <i class="fas fa-search"></i> 検索
+        </button>
+      <% end %>
+    </div>
+    </div>
     <h4 class="mb-3">店舗一覧</h4>
      <table class="table">
       <thead class="thead-dark">

@@ -11,6 +11,20 @@ class ShopsController < ApplicationController
   def create
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
+    if @shop.shop_name.match(/[一-龠々]/)
+      @shop.conversion_shop_name = @shop.shop_name.to_kanhira.to_roman
+    elsif @shop.shop_name.is_hira? || @shop.shop_name.is_kana?
+      @shop.conversion_shop_name = @shop.shop_name.to_roman
+    else
+      @shop.conversion_shop_name = @shop.shop_name
+    end
+    if @shop.address.match(/[一-龠々]/)
+      @shop.conversion_address = @shop.address.to_kanhira.to_roman
+    elsif @shop.address.is_hira? || @shop.address.is_kana?
+      @shop.conversion_address = @shop.address.to_roman
+    else
+      @shop.conversion_address = @shop.address
+    end
     @shop.save
     redirect_to shop_path(@shop.id)
   end
