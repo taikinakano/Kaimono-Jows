@@ -1,0 +1,23 @@
+<table>
+  <caption>ブックマーク一覧</caption>
+  <thead>
+    <tr>
+      <th>投稿者名</th>
+      <th>店舗名</th>
+      <th>店舗メモ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bookmarks.each do |bookmark| %>
+      <tr>
+        <td><%= bookmark.shop.user.name %></td>
+        <td>
+          <%= link_to shop_path(bookmark.shop) do %>
+            <%= bookmark.shop.shop_name %>
+          <% end %>
+        </td>
+        <td><%= bookmark.shop.comment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

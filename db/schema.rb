@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_07_130523) do
+ActiveRecord::Schema.define(version: 2021_07_07_152615) do
+
+  create_table "bookmarks", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "shop_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_bookmarks_on_shop_id"
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
 
   create_table "cooks", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -106,6 +115,7 @@ ActiveRecord::Schema.define(version: 2021_07_07_130523) do
     t.boolean "is_deleted", default: false, null: false
     t.string "image_id"
     t.text "introduction"
+    t.string "bgimage_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
