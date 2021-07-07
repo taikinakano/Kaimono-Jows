@@ -1,4 +1,4 @@
-    <h4>登録されている店舗</h4>
+    <h4 class="my-3">登録されている店舗</h4>
      <table class="table">
       <thead class="thead-dark">
       <tr>
@@ -24,8 +24,8 @@
           </td>
          <td><%= shop.address %></td>
          <% if @user == current_user %>
-         <td><%= link_to "編集する", edit_shop_path(shop.id) %></td>
-         <td><%= link_to "削除する", shop_path(shop.id), method: :delete %></td>
+         <td><%= link_to "", edit_shop_path(shop.id), class: "fas fa-edit" %></td>
+         <td><%= link_to "", shop_path(shop.id), method: :delete, class: "fas fa-trash-alt" %></td>
          <% end %>
        </tr>
        <% end %>

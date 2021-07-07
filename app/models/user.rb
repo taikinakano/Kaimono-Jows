@@ -13,7 +13,9 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
   attachment :image
+  attachment :bgimage
 
   def follow(user_id)
     relationships.create(followed_id: user_id)

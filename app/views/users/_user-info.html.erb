@@ -1,4 +1,4 @@
-    <div class="mb-4">
+    <div class="mb-4 ml-3">
     <div class="d-flex wrap">
       <div>
        <%= image_tag attachment_url(user, :image, :fill, 300, 300, fallback: "no_image.jpeg"), size:'200x200' %>
@@ -10,7 +10,8 @@
        <div class="my-3">フォロワー：<%= link_to user.followers.count, user_followers_path(user) %></div>
        <div>
       <%= render "users/info", user: user %>
-      <%= link_to "編集", edit_user_path %>
+      <%= link_to "編集", edit_user_path, class: "fas fa-edit" %>
+      <%= link_to "ブックマーク一覧", homs_mypage_path, class: "far fa-bookmark" %>
        </div>
       </div>
       <%= render "users/entry", user: user %>

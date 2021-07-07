@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'homs#top'
   get 'homs/about'
+  get 'homs/mypage'
   resources :shops, only:[:index, :show, :create, :edit, :update, :destroy] do
    resources :products
    resources :genres, only:[:new, :edit, :create, :update, :destroy ]
    resource :favorites, only: [:create, :destroy]
+   resource :bookmarks, only: [:create, :destroy]
   end
   resources :users, only:[:show, :index, :create, :update, :edit, :destroy] do
   member do
@@ -20,7 +22,7 @@ Rails.application.routes.draw do
 
   get '/search', to: 'searchs#search'
   get 'searchs/searches'
-  
+
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :show]
   resources :cooks, only:[:index, :show, :create, :edit, :update, :destroy]

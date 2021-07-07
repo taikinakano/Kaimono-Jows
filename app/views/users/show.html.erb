@@ -1,6 +1,11 @@
+<div class="container">
+ <div class="mx-auto">
+ <%= image_tag attachment_url(@user, :bgimage, :fill, 300, 300, fallback: "no_image.jpeg"), size:'800x200', class: "col-sm-12" %>
+ <%= render "users/user-info", user: @user %>
+ </div>
+</div>
 <div class="container d-flex wrap mt-5">
   <div>
-   <%= render "users/user-info", user: @user %>
    <%= render "shops/shop-new", shop: @shop %>
   </div>
   <div>
@@ -15,7 +20,7 @@
      <% end %>
    </div>
    </div>
-   <div><%= render "shops/my-shop", shops: @shops %></div>
+   <div class="ml-3"><%= render "shops/my-shop", shops: @shops %></div>
   </div>
 </div>
 
