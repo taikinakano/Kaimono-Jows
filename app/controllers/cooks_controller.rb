@@ -12,8 +12,11 @@ class CooksController < ApplicationController
 
   def create
     @cook = current_user.cooks.new(cook_params)
-    @cook.save
+    if @cook.save
     redirect_to cooks_path
+    else
+      render "index"
+    end
   end
 
   def edit
@@ -24,8 +27,10 @@ class CooksController < ApplicationController
   def update
     @user = User.find(current_user.id)
     @cook = @user.cooks.find(params[:id])
-    @cook.update(cook_params)
+    if @cook.update(cook_params)
     redirect_to cook_path(@cook.id)
+    else
+      render "edit"
   end
 
   def destroy

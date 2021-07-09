@@ -11,22 +11,23 @@
     <%= link_to shop_products_path(@shop.id)  do %>
     <%= @shop.shop_name %>
     <% end %></td>
-    </tr>
+    </tr id="shop_<%= @shop.id %>">
     <tr><th>住所</th><td><%= @shop.address %></td></tr>
     <tr><th>店舗メモ</th><td><%= @shop.comment %></td></tr>
-    <tr><th></th><td><%= render "shops/favorite", shop: @shop %></td></tr>
+    <tr><th></th><td class="favorite"><%= render "shops/favorite", shop: @shop %></td></tr><!--いいね機能-->
     <% if @shop.bookmarked_by?(current_user) %>
       <tr><th></th><td><%= link_to "", shop_bookmarks_path(@shop), method: :delete, class: "fas fa-bookmark" %></td></tr>
     <% else %>
       <tr><th></th><td><%= link_to "ブックマーク", shop_bookmarks_path(@shop), method: :post, class: "far fa-bookmark" %></td></tr>
     <% end %>
+    <tr><th></th><td class="comments-count"><%= render "shop_comments", shop: @shop %><!--店の他者からのコメント--></td></tr>
   </table>
   <div>
-    <%= link_to "戻る", user_path(current_user.id) %>
+    <%= link_to "戻る", user_path(current_user.id), class: "btn-horizontal-border" %>
   </div>
   </div>
 </div>
   <div>
-    <%= render "shop_comments", shop: @shop %>
+
   </div>
 </div>

@@ -1,0 +1,15 @@
+<h1>検索結果</h1>
+
+<%= render 'shops/favorite_search', shop: @shop %> <!--いいね並び替え検索機能-->
+
+<% @shops.each do |shops| %>
+ <p>
+    <%= link_to shops.user.email, user_path(shops.user.id) %>
+    <br>
+    <%= link_to shops.shop_name, shop_path(shops.id) %>
+    <br>
+    <%= shops.created_at %>
+    <br>
+    <%= render 'shops/favorite', shop: shops %>
+      <%= shops.favorites.count %>
+  <% end %>

@@ -1,10 +1,10 @@
 <h4>店舗編集</h4>
+<%= form_with model: @shop, local:true do |f| %>
 <table class="table table-borderless">
-  <%= form_with model: @shop, local:true do |f| %>
   <tr><th>商品画像</th><td><%= f.attachment_field :image, placeholder: "ファイルを選択" %></td></tr>
   <tr><th>店舗名</th><td><%= f.text_field :shop_name %></td></tr>
   <tr><th>住所</th><td><%= f.text_field :address %></td></tr>
   <tr><th>店舗コメント</th><td><%= f.text_field :comment %></td></tr>
   <tr><th></th><td><%= f.submit "更新" %></td></tr>
-  <% end %>
 </table>
+<% end %>

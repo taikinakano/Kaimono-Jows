@@ -1,7 +1,8 @@
+    <%= image_tag attachment_url(user, :bgimage, :fill, 300, 300, fallback: "no_image.jpeg"), size:'800x200', class: "col-sm-12 w-100" %>
     <div class="mb-4 ml-3">
     <div class="d-flex wrap">
       <div>
-       <%= image_tag attachment_url(user, :image, :fill, 300, 300, fallback: "no_image.jpeg"), size:'200x200' %>
+       <%= image_tag attachment_url(user, :image, :fill, 300, 300, fallback: "no_image.jpeg"), size:'200x200', class:"rounded-circle" %>
       </div>
       <div class="ml-4">
       <div>利用者名：<%= user.name %></div>
