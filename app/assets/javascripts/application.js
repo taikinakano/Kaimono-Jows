@@ -15,8 +15,12 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require jquery
+//= require moment
+//= require fullcalendar
+//= require bootstrap-sprockets
 
-const sentence = document.querySelector('.sentence')
+const sentence = document.querySelector('.sentence') //ヘッダーのボタン
 const h1 = document.querySelector('h1')
 const h2 = document.querySelector('h2')
 
@@ -37,12 +41,12 @@ function insertSpan(elem, letters, startTime) {
 insertSpan(h1, wordsToArray(h1.textContent))
 insertSpan(h2, wordsToArray(h2.textContent), .5)
 
-document.addEventListener('mousemove', e => {  
+document.addEventListener('mousemove', e => {
   let xpos = e.layerX || e.offsetX
   let ypos = e.layerY || e.offsetY
-  
+
   let ax = -(window.innerWidth / 2 - xpos) / 20
   let ay = (window.innerHeight / 2 - ypos) / 10
-  
+
   sentence.style.transform = `rotateY(${ax}deg) rotateX(${ay}deg)`
 })

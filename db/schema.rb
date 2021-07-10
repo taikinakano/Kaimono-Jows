@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_07_211519) do
+ActiveRecord::Schema.define(version: 2021_07_10_071128) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2021_07_07_211519) do
     t.string "allDay"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -100,6 +101,12 @@ ActiveRecord::Schema.define(version: 2021_07_07_211519) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["id"], name: "index_s_on_id"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "shop_comments", force: :cascade do |t|

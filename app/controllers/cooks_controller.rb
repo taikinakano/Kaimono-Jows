@@ -31,6 +31,7 @@ class CooksController < ApplicationController
     redirect_to cook_path(@cook.id)
     else
       render "edit"
+    end
   end
 
   def destroy
