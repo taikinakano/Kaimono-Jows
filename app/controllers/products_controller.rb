@@ -18,8 +18,11 @@ class ProductsController < ApplicationController
   def create
     @shop = Shop.find(params[:shop_id])
     @product = @shop.products.new(product_params)
-    @product.save
+    if @product.save
     redirect_to shop_products_path(@shop)
+    else
+      render "index"
+    end
   end
 
   def edit
@@ -30,8 +33,11 @@ class ProductsController < ApplicationController
   def update
     @shop = Shop.find(params[:shop_id])
     @product = @shop.products.find(params[:id])
-    @product.update(product_params)
+    if @product.update(product_params)
     redirect_to shop_products_path
+    else
+      render "edit"
+    end
   end
 
   def destroy

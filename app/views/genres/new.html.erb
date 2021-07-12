@@ -1,12 +1,16 @@
-<div class="container">
+<div class="container mb-5">
 <h4 class="my-4">商品ジャンル登録</h4>
   <%= form_with model: [@shop, @genre], local:true do |f| %>
-<div class="d-flex wrap">
-<div>商品ジャンル</div>
-<div><%= f.text_field :name %></div>
+<div class="w-90">
+<table class="ml-auto">
+<tr>
+<th><td>商品ジャンル</td></th>
+<th><td><%= f.text_field :name %></td></th>
+</tr>
+</table>
+<div class= "text-right"><%= f.submit "新規登録" %></div>
+<div class="text-right"><%= link_to "戻る", shop_products_path(@shop.id), class: "fas fa-undo my-3" %></div>
 </div>
-<div><%= f.submit "新規登録" %></div>
-<div><%= link_to "戻る", shop_products_path(@shop.id) %></div>
 <% end %>
   <table class="table">
   <thead class="thead-dark">

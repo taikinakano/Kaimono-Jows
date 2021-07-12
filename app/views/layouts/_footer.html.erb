@@ -1,0 +1,38 @@
+<div class="bg-dark row-12 d-flex pt-4" style="height:200px;">
+  <div class="col-5">
+    <div class="text-center ml-2">
+    <div class="image-jaws mx-auto"></div>
+      <h4 class="text-rogo text-light">KAIMONO JAWS</h4>
+      <p class="text-sbrogo text-light">EASY TO USE NOTEPAD</p>
+    </div>
+    </div>
+    <div class="col-7 mt-3">
+    <ul class="d-flex">
+      <% if user_signed_in? %>
+      <li><%= link_to "カレンダーを使う", event_path(current_user), class:"text-light ml-2" %></li>
+      <li><%= link_to "店舗を見る", shops_path, class:"text-light ml-2" %></li>
+      <li><%= link_to "会員を見る", users_path, class:"text-light ml-2" %></li>
+      <li><%= link_to "料理一覧", cooks_path, class:"text-light ml-2" %></li>
+      <li><%= link_to "メモを使う", user_path(current_user), class:"text-light ml-2" %></li>
+       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"text-light ml-2" %></li>
+      <% else %>
+      <li><%= link_to "詳しく見る", homs_about_path, class:"text-light ml-2"%></li>
+      <li><%= link_to "新規登録",  new_user_registration_path, class:"text-light ml-2" %></li>
+      <li><%= link_to "ログイン", new_user_session_path, class:"text-light ml-2" %></li>
+      <% end %>
+    </ul>
+    <a href="#" class="btn-social-circle btn-social-circle--twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="#" class="btn-social-circle btn-social-circle--facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="#" class="btn-social-circle btn-social-circle--pocket">
+      <i class="far fa-envelope"></i>
+    </a>
+    <a href="#" class="btn-social-circle btn-social-circle--feedly">
+      <i class="fa fa-rss"></i>
+    </a>
+    </div>
+  </div>
+

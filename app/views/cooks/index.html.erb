@@ -10,15 +10,15 @@
     </div>
     <div>
       <h4>料理登録</h4>
+      <%= form_with model: @cook, local:true do |f| %>
       <table class="table table-borderless">
-        <%= form_with model: @cook, local:true do |f| %>
        <tr><th>店舗画像</th><th><%= f.attachment_field :image, placeholder: "ファイルを選択" %></th></tr>
        <tr><th>料理名</th><th><%= f.text_field :cook_name %></th></tr>
        <tr><td>材料</td><td><%= f.text_area :cook_material, size: "30x5" %></td></tr>
        <tr><td>作り方</td><td><%= f.text_area :cook_method, size: "30x5"  %></td></tr>
        <tr><td><%= f.submit "新規登録" %></td></tr>
-       <% end %>
      </table>
+     <% end %>
     </div>
   </div>
 

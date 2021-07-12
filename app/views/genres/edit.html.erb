@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container" style="margin-bottom:200px; margin-top:200px;">
 <h4>ジャンル編集</h4>
 <%= form_with model: [@shop, @genre], local:true do |f| %>
 <table class="table table-borderless">
-  <tr><th>商品ジャンル</th><td><%= f.collection_select :id, @shop.genres.all, :id, :name, { include_blank: "--選択してください--　" } %></td></tr>
+  <tr><th>商品ジャンル</th><td><%= f.text_field :name  %></td></tr>
   <tr><th></th><td><%= f.submit "更新" %></td></tr>
 </table>
 <% end %>

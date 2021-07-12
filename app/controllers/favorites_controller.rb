@@ -1,16 +1,14 @@
 class FavoritesController < ApplicationController
 
   def create
-    shop = Shop.find(params[:shop_id])
-    favolite = current_user.favorites.new(shop_id: shop.id)
-    favolite.save
-    redirect_to shop_path(shop)
+    @shop = Shop.find(params[:shop_id])
+    favorite = @shop.favorites.new(user_id: current_user.id)
+    favorite.save
   end
 
   def destroy
-    shop = Shop.find(params[:shop_id])
-    favorite = current_user.favorites.find_by(shop_id: shop.id)
+    @shop = Shop.find(params[:shop_id])
+    favorite = @shop.favorites.find_by(user_id: current_user.id)
     favorite.destroy
-    redirect_to shop_path(shop)
   end
 end

@@ -1,0 +1,3 @@
+$("#shop_<%= @shop.id %> .comments-count").html("コメント数: <%= @shop.shop_comments.count %>");
+$(".shop_comments").html("<%= j(render 'shop_comments/shop_comments', shop: @shop) %>");
+$("#shop_comment_comment").val("");

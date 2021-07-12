@@ -1,32 +1,35 @@
-<div class="container mt-5">
-<div class="d-flex wrap mx-auto w-75">
-  <div>
-  <h4>商品詳細</h4>
-  <%= image_tag attachment_url(@shop, :image, :fill, 300, 300, fallback: "no_image.jpeg"), size:'200x200' %>
+<div class="container mt-5" style="width:90%;">
+<div class="d-flex wrap mx-auto"><!--コメントと商品詳細を分けるためのもの1-->
+  <div><!--flex wrap１−１-->
+    <div class="d-flex wrap"><!--商品の写真と文章を分けるためのもの2-->
+      <div><!--flex wrap２−１-->
+        <h4>商品詳細</h4>
+        <%= image_tag attachment_url(@shop, :image, :fill, 300, 300, fallback: "no_image.jpeg"), size:'200x200' %>
+      </div>
+        <div class="ml-3 mt-3"><!--文章--><!--flex wrap2-2-->
+        <table class="table table-borderless", id="shop_<%= @shop.id %>">
+          <tr><th>店舗名</th>
+          <td>
+          <%= link_to shop_products_path(@shop.id)  do %>
+          <%= @shop.shop_name %>
+          <% end %></td>
+          </tr>
+          <tr><th>住所</th><td><%= @shop.address %></td></tr>
+          <tr><th>店舗メモ</th><td><%= @shop.comment %></td></tr>
+          <tr><th></th><td class="favorite"><%= render "favorites/favorite", shop: @shop %></td></tr><!--いいね機能-->
+          <% if @shop.bookmarked_by?(current_user) %>
+            <tr><th></th><td><%= link_to "", shop_bookmarks_path(@shop), method: :delete, class: "fas fa-bookmark" %></td></tr>
+          <% else %>
+            <tr><th></th><td><%= link_to "ブックマーク", shop_bookmarks_path(@shop), method: :post, class: "far fa-bookmark" %></td></tr>
+          <% end %>
+          <tr class="comments_count"><th></th><td>コメント件数:<%= @shop.shop_comments.count %></td></tr>
+          <tr><th></th><td><%= link_to "戻る", user_path(current_user.id), class: "btn-horizontal-border" %></td></tr>
+        </table>
+        </div>
+      </div>
   </div>
-  <div class="ml-3 mt-3">
-  <table class="table table-borderless">
-    <tr><th>店舗名</th>
-    <td>
-    <%= link_to shop_products_path(@shop.id)  do %>
-    <%= @shop.shop_name %>
-    <% end %></td>
-    </tr>
-    <tr><th>住所</th><td><%= @shop.address %></td></tr>
-    <tr><th>店舗メモ</th><td><%= @shop.comment %></td></tr>
-    <tr><th></th><td><%= render "shops/favorite", shop: @shop %></td></tr>
-    <% if @shop.bookmarked_by?(current_user) %>
-      <tr><th></th><td><%= link_to "", shop_bookmarks_path(@shop), method: :delete, class: "fas fa-bookmark" %></td></tr>
-    <% else %>
-      <tr><th></th><td><%= link_to "ブックマーク", shop_bookmarks_path(@shop), method: :post, class: "far fa-bookmark" %></td></tr>
-    <% end %>
-  </table>
-  <div>
-    <%= link_to "戻る", user_path(current_user.id) %>
-  </div>
-  </div>
+    <div class="ml-5", id="shop_<%= @shop.id %>"><!--flex wrap１−２-->
+    　<div class="shop_comments"><%= render "shop_comments/shop_comments", shop: @shop %></div><!--店の他者からのコメント-->
+    </div>
 </div>
-  <div>
-    <%= render "shop_comments", shop: @shop %>
-  </div>
 </div>

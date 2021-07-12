@@ -26,8 +26,11 @@ class ShopsController < ApplicationController
     else
       @shop.conversion_address = @shop.address
     end
-    @shop.save
-    redirect_to shop_path(@shop.id)
+    if @shop.save
+     redirect_to shop_path(@shop.id), notice: '店舗が登録されました。'
+    else
+      render "show"
+    end
   end
 
   def edit
@@ -36,8 +39,11 @@ class ShopsController < ApplicationController
 
   def update
     @shop = Shop.find(params[:id])
-    @shop.update(shop_params)
-    redirect_to user_path(@shop.id)
+    if @shop.update(shop_params)
+      redirect_to user_path(@shop.id)
+    else
+      render "edit"
+    end
   end
 
   def destroy
@@ -46,6 +52,11 @@ class ShopsController < ApplicationController
     @user = User.find(current_user.id)
     redirect_to user_path(@user)
   end
+
+   def search
+      selection = params[:keyword]
+      @shops = Shop.sort(selection)
+   end
 
   private
   def shop_params

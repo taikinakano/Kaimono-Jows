@@ -1,15 +1,14 @@
-<div class="container">
+<div style="background: #E0FFFF;">
+<div class="container" style="width:70%;">
  <div class="mx-auto">
- <%= image_tag attachment_url(@user, :bgimage, :fill, 300, 300, fallback: "no_image.jpeg"), size:'800x200', class: "col-sm-12" %>
  <%= render "users/user-info", user: @user %>
  </div>
-</div>
 <div class="container d-flex wrap mt-5">
   <div>
    <%= render "shops/shop-new", shop: @shop %>
   </div>
   <div>
-   <div class="container mt-3">
+   <div class="mt-3">
    <div class="search-form text-right">
      <%= form_with url: search_path, method: :get, local: true do |f| %>
        <%= f.text_field :content %>
@@ -20,7 +19,8 @@
      <% end %>
    </div>
    </div>
-   <div class="ml-3"><%= render "shops/my-shop", shops: @shops %></div>
+   <div class="ml-5"><%= render "shops/my-shop", shops: @shops %></div>
   </div>
 </div>
-
+</div>
+</div>

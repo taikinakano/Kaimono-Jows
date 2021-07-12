@@ -1,6 +1,6 @@
 class SearchsController < ApplicationController
   before_action :search_params
- 	def search                                   #shop/index検索
+ 	def search                                   #user/show検索
 		if @model == 'shop_name'
 		  user = User.find(current_user.id)
 			@records = user.shops.search_for(@record, @method).page(params[:page]).reverse_order
@@ -10,7 +10,7 @@ class SearchsController < ApplicationController
 		end
 	end
 
-	def searches                                 #user/show検索
+	def searches                                 #shop/imdex検索
 		if @model == 'shop_name'
 			@records = Shop.search_for(@record, @method).page(params[:page]).reverse_order
 		else
