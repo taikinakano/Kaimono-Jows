@@ -1,13 +1,16 @@
 class Shop < ApplicationRecord
 
   belongs_to :user
-  has_many :products,      dependent: :destroy
-  has_many :genres,        dependent: :destroy
-  has_many :favorites,     dependent: :destroy
-  has_many :bookmarks,     dependent: :destroy
-  has_many :shop_comments, dependent: :destroy
+  has_many   :products,      dependent: :destroy
+  has_many   :genres,        dependent: :destroy
+  has_many   :favorites,     dependent: :destroy
+  has_many   :bookmarks,     dependent: :destroy
+  has_many   :shop_comments, dependent: :destroy
   attachment :image
 
+  validates  :shop_name,     presence: true
+  validates  :address,       presence: true
+  validates  :comment,       presence: true
 
   def bookmarked_by?(user)
     bookmarks.where(user_id: user).exists?

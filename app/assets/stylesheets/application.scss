@@ -16,6 +16,20 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+.notifications { //フラッシュメッセージ
+  color: $white;
+  text-align: center;
+
+  .notice {
+    background-color: #CCFFCC;
+    height: 30px;
+    color: black;
+  }
+
+  .alert {
+    background-color: alert_orange;
+  }
+} 　　　　　　　//フラッシュメッセージ終わり
 
 .image-jaws {
   background-image: url("shark2.png");

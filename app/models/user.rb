@@ -4,21 +4,26 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :shops, dependent: :destroy
-  has_many :cooks, dependent: :destroy
+  has_many :shops,                     dependent: :destroy
+  has_many :cooks,                     dependent: :destroy
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :followers, through: :reverse_of_relationships, source: :follower
   has_many :followings, through: :relationships, source: :followed
-  has_many :messages, dependent: :destroy
-  has_many :entries, dependent: :destroy
-  has_many :favorites, dependent: :destroy
-  has_many :bookmarks, dependent: :destroy
-  has_many :shop_comments, dependent: :destroy
-  has_many :events, dependent: :destroy
-  has_many :searchs, dependent: :destroy
+  has_many :messages,                  dependent: :destroy
+  has_many :entries,                   dependent: :destroy
+  has_many :favorites,                 dependent: :destroy
+  has_many :bookmarks,                 dependent: :destroy
+  has_many :shop_comments,             dependent: :destroy
+  has_many :events,                    dependent: :destroy
+  has_many :searchs,                   dependent: :destroy
   attachment :image
   attachment :bgimage
+
+  validates :name,           presence: true, length: { minimum: 2, maximum: 20 }, uniqueness: true
+  validates :email,          presence: true
+  validates :introduction,   presence: true, length: { maximum: 100 }
+
 
   def follow(user_id)
     relationships.create(followed_id: user_id)

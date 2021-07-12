@@ -2,7 +2,6 @@ class SearchsController < ApplicationController
   before_action :search_params
  	def search                                   #user/show検索
 		if @model == 'shop_name'
-			#binding.pry
 		  user = User.find(current_user.id)
 			@records = user.shops.search_for(@record, @method).page(params[:page]).reverse_order
 		else

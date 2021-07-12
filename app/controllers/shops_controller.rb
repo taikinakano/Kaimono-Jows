@@ -27,7 +27,7 @@ class ShopsController < ApplicationController
       @shop.conversion_address = @shop.address
     end
     if @shop.save
-     redirect_to shop_path(@shop.id)
+     redirect_to shop_path(@shop.id), notice: '店舗が登録されました。'
     else
       render "show"
     end

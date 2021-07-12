@@ -2,5 +2,5 @@ class ShopComment < ApplicationRecord
 
   belongs_to :user
   belongs_to :shop
-  validates :text, presence: true
+  validates :comment, presence: true
 end

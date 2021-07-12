@@ -1,8 +1,8 @@
 <div class="container">
 <h4 class="my-4">店舗名：<%= @shop.shop_name %></h4>
   <div>商品一覧</div>
-  <%= link_to '新規投稿', new_shop_product_path(@shop) %>
-  <%= link_to "ジャンル登録", new_shop_genre_path(@shop) %>
+  <%= link_to '新規投稿', new_shop_product_path(@shop), class: "fas fa-plus mr-2" %>
+  <%= link_to "ジャンル登録", new_shop_genre_path(@shop), class: "fas fa-plus" %>
   <table class="table">
   <thead class="thead-dark">
     <tr>
