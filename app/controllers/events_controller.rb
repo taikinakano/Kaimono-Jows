@@ -11,19 +11,18 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.save!
     @events = Event.where(user_id: current_user.id)
-    #pp @events
   end
 
   def update
-    event = Event.find(params[:ud])
-    @event = Event.where(user_id: current_user.id)
+    event = Event.find(params[:id])
+    @events = Event.where(user_id: current_user.id)
     event.update(event_params)
   end
 
   def destroy
-    @user = User.find(params[:id])
-    event = Event.find(params[:id])
-    event.destroy
+    @user = User.find(current_user.id)
+    @event = Event.find(params[:id])
+    @event.destroy
     redirect_to event_path(@user)
   end
 

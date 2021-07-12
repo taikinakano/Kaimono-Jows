@@ -8,7 +8,7 @@
                 </div>
                 <div class="modal-body">
                     <div  class="col">
-                        <%= form_with(model: event, url: event_path(event), method: :put) do |f| %>
+                        <%= form_with(model: event, url: event_path(event), method: :patch) do |f| %>
                             <p>
                                 <span>タイトル</span>
                                 <span id="inputTitle" value=""><%= f.text_field :title, class: "form-control", placeholder: "タイトルを入力してください" %></span>
@@ -27,6 +27,7 @@
                                 <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
                             </div>
                         <% end %>
+                        <%= link_to "削除する", event_path(event), method: :delete, class: "btn btn-danger"%>
                     </div>
                 </div>
             </div>

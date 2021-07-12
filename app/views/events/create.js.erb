@@ -3,11 +3,6 @@ $('input[type="text"]').val('');
 //モーダルを消す
 $('#inputScheduleForm').modal('hide');
 //作成した予定を差し替える
-$('#calendar').fullCalendar(
-  'renderEvent',
-  $.parseJSON("<%=j render(@event, format: :json).html_safe %>"),//json形式のデータをjavascriptに変える
-  true
-);
 $('#inputEditForm').html('<%= escape_javascript(render("events/edit", events: @events )) %>');
 // フルカレンダー を一度消しもう一度表示
 $('#calendar').fullCalendar('refetchEvents')
