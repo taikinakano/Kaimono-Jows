@@ -1,11 +1,12 @@
 <h4>店舗編集</h4>
+<%= form_with model: @cook, local:true do |f| %>
 <table class="table table-borderless">
-  <%= form_with model: @cook, local:true do |f| %>
   <tr><th>料理画像</th><td><%= f.attachment_field :image, placeholder: "ファイルを選択" %></td></tr>
   <tr><th>料理名</th><td><%= f.text_field :cook_name %></td></tr>
   <tr><th>材料</th><td><%= f.text_area :cook_material %></td></tr>
   <tr><th>作り方</th><td><%= f.text_area :cook_method%></td></tr>
+  <tr><th>タグの編集</th><td><%= f.text_field :tag_name %></td></tr>
   <tr><th></th><td><%= f.submit "更新" %></td></tr>
-  <% end %>
 </table>
+<% end %>
 

@@ -8,14 +8,18 @@
     <%= @user.introduction %>
     <%= link_to "編集", edit_user_path(@user) %>
     </div>
+    <%= render "cooks/user_cook_info", user: @user %>
     <div>
       <h4>料理登録</h4>
       <%= form_with model: @cook, local:true do |f| %>
       <table class="table table-borderless">
        <tr><th>店舗画像</th><th><%= f.attachment_field :image, placeholder: "ファイルを選択" %></th></tr>
        <tr><th>料理名</th><th><%= f.text_field :cook_name %></th></tr>
-       <tr><td>材料</td><td><%= f.text_area :cook_material, size: "30x5" %></td></tr>
-       <tr><td>作り方</td><td><%= f.text_area :cook_method, size: "30x5"  %></td></tr>
+       <tr><th>材料</th><td><%= f.text_area :cook_material, size: "30x5" %></td></tr>
+       <tr><th>作り方</th><td><%= f.text_area :cook_method, size: "30x5"  %></td></tr>
+       <tr><th></th><td><%= "スペースを入力することで複数のタグを付けることができます。" %></td></tr>
+       <tr><th></th><td><%= "例：音楽 文芸 スポーツ" %></td></tr>
+       <tr><th></th><td><%= f.text_field :tag_name %></td></tr>
        <tr><td><%= f.submit "新規登録" %></td></tr>
      </table>
      <% end %>
@@ -23,6 +27,14 @@
   </div>
 
   <div>
+<h3> タグリスト</h3>
+<% @tag_list.each do |list| %>
+  <span>
+    <%= link_to list.tag_name, tag_cooks_path(tag_id: list.id) %>
+    <%= "(#{list.cooks.count})" %>
+  </span>
+<% end %>
+  </span>
     <h4>登録されている料理</h4>
      <table class="table">
       <thead class="thead-dark">
