@@ -1,0 +1,21 @@
+<div class="container">
+<h2> 投稿一覧</h2>
+<div class="border-bottom border-dark">
+<%= render "cooks/tag_lists", cook_tags: @cook_tags %><!--タグリスト
+</div>
+<br>
+<h4>タグによって絞り込んだ投稿一覧</h4>
+<br>
+<%= "タグが ─ " %>
+<strong><%= "#{@tag.tag_name}" %></strong>
+<%= " ─ の投稿一覧" %>
+<br>
+<% @cooks.each do |post| %>
+  <%= image_tag attachment_url(post, :image, :fill, 100, 100, fallback: "no_image.jpeg"), size: '100x100' %>
+  <%= link_to post.cook_name, cook_path(post.id) %>
+<% end %>
+<%= paginate @cooks %>
+<div>
+<%= link_to "", cooks_path, class:"fas fa-undo" %>
+</div>
+</div>

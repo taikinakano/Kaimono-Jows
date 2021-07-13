@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_10_071128) do
+ActiveRecord::Schema.define(version: 2021_07_13_015245) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -128,6 +128,21 @@ ActiveRecord::Schema.define(version: 2021_07_10_071128) do
     t.datetime "updated_at"
     t.string "conversion_shop_name"
     t.string "conversion_address"
+  end
+
+  create_table "tag_maps", force: :cascade do |t|
+    t.integer "cook_id"
+    t.integer "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id"], name: "index_tag_maps_on_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id"], name: "index_tags_on_id"
   end
 
   create_table "users", force: :cascade do |t|
