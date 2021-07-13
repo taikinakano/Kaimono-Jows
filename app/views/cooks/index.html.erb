@@ -2,14 +2,8 @@
   <div class="mt-4 d-flex wrap">
   <div>
     <div>
-    <h4>利用者名</h4>
-    <%= attachment_image_tag @user, :image, :fill, size: '100x100', format: 'jpeg', fallback: "no_image.jpeg" %>
-    <%= @user.name %>
-    <%= @user.introduction %>
-    <%= link_to "編集", edit_user_path(@user) %>
-    </div>
     <%= render "cooks/user_cook_info", user: @user %>
-    <div>
+    </div>
       <h4>料理登録</h4>
       <%= form_with model: @cook, local:true do |f| %>
       <table class="table table-borderless">
@@ -24,16 +18,8 @@
      </table>
      <% end %>
     </div>
-  </div>
-
   <div>
-<h3> タグリスト</h3>
-<% @tag_list.each do |list| %>
-  <span>
-    <%= link_to list.tag_name, tag_cooks_path(tag_id: list.id) %>
-    <%= "(#{list.cooks.count})" %>
-  </span>
-<% end %>
+  <%= render "cooks/tag_lists", cook_tags: @cook_tags %><!--タグリスト-->
   </span>
     <h4>登録されている料理</h4>
      <table class="table">

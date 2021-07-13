@@ -11,14 +11,7 @@
     <tr><th>材料</th></tr><tr><td><%= @cook.cook_material %></td></tr>
     <tr><th>作り方</th></tr><tr><td><%= @cook.cook_method %></td></tr>
    </table>
-   <h3> タグリスト</h3>
-   <% @cook_tags.each do |list| %>
-     <span>
-       <%= link_to list.tag_name, tag_cooks_path(tag_id: list.id) %>
-       <%= "(#{list.cooks.count})" %>
-     </span>
-   <% end %>
-     </span>
+     <%= render "cooks/tag_lists", cook_tags: @cook_tags %><!--タグの記述-->
      <%= link_to "戻る", cooks_path %>
     <% if @user == current_user %>
      <%= link_to "編集する", edit_cook_path(@cook.id) %>

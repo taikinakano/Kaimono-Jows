@@ -1,13 +1,7 @@
 <div class="container">
 <h2> 投稿一覧</h2>
 <div class="border-bottom border-dark">
-<h4>タグリスト</h4><br>
-<% @tag_list.each do |list| %>
-  <span>
-    <%= link_to list.tag_name, tag_cooks_path(list.id) %>
-    <%= "(#{list.cooks.count})" %>
-  </span>
-<% end %>
+<%= render "cooks/tag_lists", cook_tags: @cook_tags %><!--タグリスト
 </div>
 <br>
 <h4>タグによって絞り込んだ投稿一覧</h4>
