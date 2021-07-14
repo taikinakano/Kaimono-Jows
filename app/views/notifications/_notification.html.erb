@@ -1,0 +1,42 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+
+<div class="container">
+<div class="my-3">
+    <span>
+      <%= link_to user_path(visitor) do %>
+        <%= image_tag attachment_url(visitor, :image, :fill, 50, 50, fallback: "no_image.jpeg"), size:'50x50', class:"rounded-circle" %>
+      <% end %>
+        <strong>
+          <%= visitor.name %>
+        </strong>
+      <%= 'さんが' %>
+    </span>
+      <% case notification.action %>
+      <% when 'follow' then %>
+        <%= "あなたをフォローしました" %>
+      <% when 'favorite' then %>
+        <%= link_to 'あなたの投稿', notification.shop, style: "font-weight: bold;" %>
+        <%= "にいいねしました" %>
+      <% when 'shop_comment' then %>
+        <% if notification.shop.user_id == visited.id %>
+          <span>
+            <%= link_to shop_path(notification.shop) do %>
+              <%= image_tag attachment_url(notification.shop.user, :image, :fill, 50, 50, fallback: "no_image.jpeg"), size:'50x50', class:"rounded-circle" %>
+              <strong>
+                <%= notification.shop.user.name + 'さんの投稿' %>
+              </strong>
+          <%= "にコメントしました" %>
+          </span>
+          <p class="text-muted.mb-0">
+            <%= ShopComment.find_by(id: notification.shop_comment_id).comment %>
+          </p>
+
+            <%= time_ago_in_words(notification.created_at) %>
+
+              <% end %>
+         <% end %>
+       <% end %>
+       <!--<%#= link_to "", notification_path(@notifications), method: :delete, class: "fas fa-trash-alt" %>-->
+</div>
+</div>

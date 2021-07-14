@@ -1,3 +1,4 @@
+    <div class="bglayout">
     <div class="container">
     <div class="mt-4">
     <h4 class="mb-3">会員一覧</h4>
@@ -10,7 +11,7 @@
       <th></th>
       </tr>
      </thead>
-     <tbody>
+     <tbody class="bg-light">
        <% @users.each do |users| %>
        <tr>
          <td>
@@ -24,11 +25,14 @@
            <% end %>
           </td>
           <td><%= users.introduction %></td>
-          <td><%= render "users/info", user: users %></td>
+          <% if users != current_user %>
+          <td><%= render "users/info", user: users %></td><!--フォローの記述-->
+          <% end %>
        </tr>
        <% end %>
      </tbody>
     </table>
     <%= paginate @users %>
+    </div>
     </div>
     </div>

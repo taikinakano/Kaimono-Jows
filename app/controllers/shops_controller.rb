@@ -29,7 +29,9 @@ class ShopsController < ApplicationController
     if @shop.save
      redirect_to shop_path(@shop.id), notice: '店舗が登録されました。'
     else
-      render "show"
+      @user = User.find(current_user.id)
+      @shops = @user.shops.page(params[:page]).reverse_order
+      render "users/show"
     end
   end
 
@@ -60,6 +62,6 @@ class ShopsController < ApplicationController
 
   private
   def shop_params
-    params.require(:shop).permit(:shop_name, :image, :address, :comment)
+    params.require(:shop).permit(:shop_name, :image, :address, :comment, :user_id)
   end
 end

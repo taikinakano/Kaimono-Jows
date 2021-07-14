@@ -6,6 +6,8 @@ class ShopCommentsController < ApplicationController
     @shop_comment.shop_id = @shop.id
     @shop_comment.user_id = current_user.id
     @shop_comment.save
+    @shop.create_notification_comment!(current_user, @shop_comment.id) #通知機能の記述
+    respond_to :js
   end
 
   def destroy

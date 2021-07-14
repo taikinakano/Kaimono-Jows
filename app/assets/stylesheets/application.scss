@@ -16,6 +16,11 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+.bglayout {
+  background-image: url("moroccan-flower.png");
+  height: 100%;
+  width: 100%;
+}
 .notifications { //フラッシュメッセージ
   color: $white;
   text-align: center;
