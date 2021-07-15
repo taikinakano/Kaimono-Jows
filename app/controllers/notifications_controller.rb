@@ -8,9 +8,15 @@ class NotificationsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @notification = current_user.notifications.find(params[:user_id])
-  #   @notification.destroy
-  #   redirect_to notifications_path
-  # end
+  def destroy
+    @notification = current_user.passive_notifications.find(params[:id])
+    @notification.destroy
+    redirect_to notifications_path
+  end
+
+  def all_destroy
+    @notifications = current_user.passive_notifications.all
+    @notifications.destroy_all
+    redirect_to notifications_path
+  end
 end

@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
 
   def index
     @shop = Shop.find(params[:shop_id])
-    @products = @shop.products.page(params[:page]).reverse_order
+    @products = @shop.products.page(params[:page]).per(3).reverse_order
   end
 
   def create

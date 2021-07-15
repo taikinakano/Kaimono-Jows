@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   get 'searchs/searches'
   get 'search'       => 'shops#search'
   get 'shops/search' => 'shops#search', as: 'search_shops'
+  get 'searchs/shop_search' => 'searchs#shop_search', as: 'search_search_shops'#並び替え実験
 
   resources :notifications,  only: [:index, :destroy]
+  delete    'notifications'                 => 'notifications#all_destroy', as: 'all_destroy'
   resources :messages,       only: [:create]
   resources :rooms,          only: [:create, :show]
   resources :cooks,          only:[:index, :show, :create, :edit, :update, :destroy]

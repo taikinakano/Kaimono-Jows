@@ -23,6 +23,12 @@ class SearchsController < ApplicationController
 		end
 	end
 
+	def shop_search
+		  #@records = Shop.search_for(@record, @method).page(params[:page]).reverse_order#絞り込み検索できるか実験
+	    #selection = params[:keyword]#絞り込み検索できるか実験
+      @shops = @records.shops.sort(selection)
+	end
+
 	private
 	def search_params
 	  @model = params[:model]

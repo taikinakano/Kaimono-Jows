@@ -26,12 +26,13 @@
   <div class="container">
   <div class="row">
     <div class="col-md-10 offset-md-1">
-     <h3 class="mt-3">商品検索結果 "<%= @content %>"</h3>
-      <h5 class="mt-3 mb-5 d-table" style="background-color: #e6e3de;">　商品一覧　</h5>
+     <h3 class="mt-3">住所検索結果 "<%= @content %>"</h3>
+     <%#= render "searchs/favorited_search", shop: @records %> <!--いいね並び替え検索-->
+      <h5 class="mt-3 mb-5 d-table" style="background-color: #e6e3de;">　店舗一覧　</h5>
         <table class="table">
           <thead class="thead-light">
             <tr>
-              <th>店舗ID</th>
+              <th>店舗画像</th>
               <th>店舗名</th>
               <th>住所</th>
 
@@ -40,9 +41,9 @@
           <% @records.each do |shop| %>
             <tbody>
               <tr>
-                <td><%= shop.id %></td>
-                <td><%= shop.shop_name %></td>
-                <td><%= shop.address %></td>
+                <td><%= image_tag attachment_url(shop, :image, :fill, 80, 80, fallback: "no_image.jpeg"), size:'80x80' %></td>
+                <td style="padding-top: 45px;"><%= shop.shop_name %></td>
+                <td style="padding-top: 45px;"><%= shop.address %></td>
               </tr>
             </tbody>
           <% end %>
