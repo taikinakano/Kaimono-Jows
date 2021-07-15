@@ -1,0 +1,41 @@
+.btn-flat-border {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #FF0000;
+  border: solid 2px #FF0000;
+  border-radius: 3px;
+  transition: .4s; }
+
+.btn-flat-border:hover {
+  background: #FF0000;
+  color: white; }
+
+.btn-float-border-unwithdrow {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #67c5ff;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s; }
+
+.btn-float-border-unwithdrow:hover {
+  background: #67c5ff;
+  color: white; }
+
+.btn-float-border-entry {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #00FF00;
+  border: solid 2px #00FF00;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.btn-float-border-entry:hover {
+  background: #00FF00;
+  color: white;
+}
+/*# sourceMappingURL=users.css.map */
