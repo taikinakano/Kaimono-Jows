@@ -1,0 +1,38 @@
+<div class="bglayout py-5">
+<div class="container">
+  <div class="mx-auto mt-4">
+  <h4>商品詳細</h4>
+　<div class="d-flex wrap">
+　<div class="d-flex wrap">
+  <div>
+   <%= image_tag attachment_url(@product, :image, :fill, 200, 200, fallback: "no_image.jpeg"), size:'200x200' %>
+  </div>
+  <div class="ml-3">
+   <table class="table table-borderless">
+      <tr><th>商品名</th><td><%= @product.product_name %></td></tr>
+      <tr><th>ジャンル</th><td><%= @product.genre.name %></td></tr>
+      <tr><th>価格</th><td><%= @product.price %></td></tr>
+   </table>
+   <div class="d-flex wrap">
+   <div>
+   <%= link_to "編集", edit_shop_product_path, class: "fas fa-edit" %>
+   </div>
+   <div class="mx-3">
+     <%= link_to "削除", shop_product_path(@shop, @product), method: :delete, class: "fas fa-trash-alt" %>
+   </div>
+   <div>
+     <%= link_to "戻る", shop_products_path, class: "fas fa-undo" %>
+   </div>
+   </div>
+　</div>
+　</div>
+　<div class="ml-5 pt-0 w-25">
+　<h5 class="fas fa-user-edit">商品メモ</h5>
+　<div class="mt-4 bg-light">
+ 　<%= @product.product_memo %>
+  </div>
+　</div>
+　</div>
+　</div>
+</div>
+</div>

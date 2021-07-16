@@ -1,0 +1,12 @@
+    <div>
+      <h4>店舗登録</h4>
+      <%= form_with model: shop, local:true do |f| %>
+      <table class="table table-borderless">
+       <tr><th>店舗画像</th><th><%= f.attachment_field :image, placeholder: "ファイルを選択" %></th></tr>
+       <tr><th>店舗名</th><th><%= f.text_field :shop_name %></th></tr>
+       <tr><td>住所</td><td><%=f.text_field :address %></td></tr>
+       <tr><td>店舗コメント</td><td><%= f.text_area :comment, size: "20x5" %></td></tr>
+       <tr><td><%= f.submit "新規登録" %></td></tr>
+     </table>
+     <% end %>
+    </div>

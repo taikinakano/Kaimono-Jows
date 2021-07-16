@@ -1,0 +1,20 @@
+<% if @model == 'shop_name' %>
+<div class="bglayout py-5">
+<div class="container"> <!--users/showの検索機能-->
+  <div class="col-8 offset-2">
+    <h3>店舗検索結果 "<%= @content %>"</h3>
+    <%= render "searchs/searches_shop" %>
+  </div>
+</div>
+</div>
+<% elsif @model == 'address'%>
+<div class="bglayout py-5">
+<div class="container">
+  <div class="col-8 offset-2">
+    <h3>住所検索結果 "<%= @content %>"</h3>
+    <%= render "searchs/searches_shop" %>
+  </div>
+</div>
+</div>
+<% end %>
+

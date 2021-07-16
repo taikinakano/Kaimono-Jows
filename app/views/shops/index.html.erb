@@ -1,0 +1,46 @@
+    <div class="bglayout py-5">
+    <div class="container">
+    <div class="mt-4">
+    <div class="container mt-3">
+    <div class="search-form text-right">
+      <%= form_with url: searchs_searches_path, method: :get, local: true do |f| %>
+        <%= f.text_field :content %>
+        <%= f.select :model , options_for_select({ "店舗名" => "shop_name", "住所" => "address" }) %>
+        <button type="submit" class="btn btn-sm btn-secondary">
+          <i class="fas fa-search"></i> 検索
+        </button>
+      <% end %>
+    </div>
+    </div>
+    <%= render "shops/favorite_search", shop: @shop %> <!--いいね並び替え検索-->
+    <h4 class="mb-3">店舗一覧</h4>
+     <table class="table">
+      <thead class="thead-dark">
+      <tr>
+      <th>店舗画像</th>
+      <th>店舗名</th>
+      <th>住所</th>
+      </tr>
+     </thead>
+     <tbody class="bg-light">
+       <% @shops.each do |shops| %>
+       <tr>
+         <td>
+         <%= link_to shop_path(shops.id) do %>
+         <%= attachment_image_tag shops, :image, size: '200x150', formate: 'jpeg', fallback: "no_iamge.jpeg" %>
+         <% end %>
+         </td>
+         <td class="pt-4">
+           <%= link_to shop_path(shops.id) do %>
+           <%= shops.shop_name %>
+           <% end %>
+          </td>
+          <td class="pt-4"><%= shops.address %></td>
+       </tr>
+       <% end %>
+       <%= paginate @shops %>
+     </tbody>
+    </table>
+    </div>
+    </div>
+    </div>

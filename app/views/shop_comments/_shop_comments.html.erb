@@ -1,0 +1,24 @@
+<div class="new-comment">
+  <%= form_with model:[@shop, @shop_comment] do |f| %>
+   <%= f.text_area :comment, rows:'5', placeholder: "コメントをここに" %>
+   <%= f.submit "送信する" %>
+  <% end %>
+</div>
+<% shop.shop_comments.each do |shop_comment| %>
+<div class="comments d-flex wrap mt-3">
+  <div><%= image_tag attachment_url(shop_comment.user, :image, :fill, 70, 70, fallback: "no_image.jpeg"), size:'70x70', class: "rounded-circle mr-3" %></div>
+  <div>
+    <dl style="line-height:2rem">
+      <dt><%= shop_comment.user.name %></dt>
+      <dt><%= shop_comment.created_at.strftime('%Y/%m/%d') %></dt>
+      <dt><%= shop_comment.comment %></dt>
+    </dl>
+  </div>
+  <div class="ml-3">
+    <% if current_user = shop_comment.user %>
+    <%= link_to "", shop_shop_comment_path(shop_comment.shop_id, shop_comment.id), class: "fas fa-trash-alt pt-5 pl-3", method: :delete, remote: true %>
+    <% end %>
+  </div>
+</div>
+<% end %>
+

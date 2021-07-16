@@ -1,0 +1,34 @@
+<div class="bglayout py-5">
+  <div class="container">
+   <div class="mt-4 mx-auto w-75">
+    <h4>商品詳細</h4>
+     <div class="d-flex flex-wrap">
+      <div class="d-flex wrap w-50">
+       <div class="mr-3">
+         <%= image_tag attachment_url(@cook, :image, :fill, 300, 300, fallback: "no_image.jpeg"), size:'200x200' %>
+       </div>
+       <div>
+         <table class="table table-borderless">
+           <tr><th>料理名</th></tr><tr><td><%= @cook.cook_name %></td></tr>
+           <tr><th>材料</th></tr><tr><td class="bg-light p-2"><%= @cook.cook_material %></td></tr>
+         </table>
+          <% if @user == current_user %>
+           <%= link_to "編集する", edit_cook_path(@cook.id), class: "fas fa-edit" %>
+           <%= link_to "削除する", cook_path(@cook.id), method: :delete, class: "fas fa-trash-alt mx-3" %>
+          <% end %>
+           <%= link_to "戻る", cooks_path, class: "fas fa-undo" %>
+          <div class="mt-3">
+           <%= render "cooks/tag_lists", cook_tags: @cook_tags %><!--タグの記述-->
+          </div>
+        </div>
+        </div>
+        <div class="w-50">
+          <h5>作り方</h5>
+          <div class="bg-light mt-1 p-3"><%= @cook.cook_method %></div>
+        </div>
+     </div>
+     </div>
+    </div>
+  </div>
+</div>
+

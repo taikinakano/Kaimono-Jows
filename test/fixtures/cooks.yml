@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  genre_id: 1
+  cook_name: 1
+  image_id: MyString
+  cook_method: MyText
+  cook_material: MyText
+  create_at: 2021-07-05 08:07:36
+  updated_at: 2021-07-05 08:07:36
+
+two:
+  genre_id: 1
+  cook_name: 1
+  image_id: MyString
+  cook_method: MyText
+  cook_material: MyText
+  create_at: 2021-07-05 08:07:36
+  updated_at: 2021-07-05 08:07:36

@@ -1,0 +1,15 @@
+<div class="bglayout py-5">
+  <div class="container">
+  <h4>店舗編集</h4>
+  <%= form_with model: @cook, local:true do |f| %>
+  <table class="table table-borderless">
+    <tr><th>料理画像</th><td><%= f.attachment_field :image, placeholder: "ファイルを選択" %></td></tr>
+    <tr><th>料理名</th><td><%= f.text_field :cook_name %></td></tr>
+    <tr><th>材料</th><td><%= f.text_area :cook_material, size:"20x5" %></td></tr>
+    <tr><th>作り方</th><td><%= f.text_area :cook_method, size:"20x5" %></td></tr>
+    <tr><th>タグの編集</th><td><%= f.text_field :tag_name %></td></tr>
+    <tr><th></th><td><%= f.submit "更新", class:"btn-float-border-edit" %></td></tr>
+  </table>
+  <% end %>
+  </div>
+</div>

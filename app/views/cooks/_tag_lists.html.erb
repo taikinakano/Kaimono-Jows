@@ -1,0 +1,7 @@
+   <h4> タグリスト</h4>
+   <% cook_tags.each do |list| %>
+     <span>
+       <%= link_to list.tag_name, tag_cooks_path(tag_id: list.id) %>
+       <%= "(#{list.cooks.count})" %>
+     </span>
+   <% end %>

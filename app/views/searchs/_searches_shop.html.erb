@@ -1,0 +1,39 @@
+    <h2 class='mt-5'>店舗一覧</h2> <!--searches.htmlのパーシャル-->
+    <table class="table table-bordered text-center mt-5">
+      <thead class="thead-light">
+        <tr>
+         <th>店舗画像</th>
+         <th>店舗名</th>
+         <th>住所</th>
+         <th></th>
+        </tr>
+      </thead>
+        <% @records.each do |shop| %>
+          <tbody class="bg-light">
+            <tr>
+              <td><%= image_tag attachment_url(shop, :image, :fill, 100, 100, fallback: "no_image.jpeg"), size:'100x100' %></td>
+              <td class="pt-4">
+                <%= link_to shop_path(shop) do %>
+                 <%= shop.shop_name %>
+                <% end %>
+              </td>
+              <td class="pt-4"><%= shop.address %></td>
+              <td class="pt-4">
+                <%= link_to shop_path(shop) do %>
+                 <div class="mb-2">
+                  <%= "店舗ページへ" %>
+                 </div>
+                 <div>
+                  <%= shop.favorites.count %>いいね
+                 </div>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        <% end %>
+        </table>
+         <% if @records.count == 0 %>
+         <div>
+          <h4 class="d-flex align-items-center justify-content-center" style="height: 200px;">該当する会員はいません</h4>
+        </div>
+        <% end %>

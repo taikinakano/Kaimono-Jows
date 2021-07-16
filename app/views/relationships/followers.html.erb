@@ -1,0 +1,12 @@
+<div class="bglayout">
+  <div class="container py-5">
+    <div class="mt-5">
+      <h2 class="mb-3">フォロワー</h2>
+      <% if @users.exists? %>
+        <%= render '/users/follow', users: @users %>
+      <% else %>
+        <p>ユーザーはいません</p>
+      <% end %>
+    </div>
+  </div>
+</div>
