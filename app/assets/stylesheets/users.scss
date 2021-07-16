@@ -1,3 +1,50 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.btn-flat-border { //退会ボタン
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: 	#FF0000;
+  border: solid 2px #FF0000;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.btn-flat-border:hover {
+  background: #FF0000;
+  color: white;
+}                  //退会ボタン終わり
+
+.btn-float-border-unwithdrow {//退会しない、フォロー外すボタン
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #67c5ff;
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.btn-float-border-unwithdrow:hover {
+  background: #67c5ff;
+  color: white;
+}                              //退会しない、フォロー外すボタン終わり
+
+.btn-float-border-search {//退会しない、フォロー外すボタン
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #000000;
+  border: solid 2px #000000;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.btn-float-border-search:hover {
+  background: #000000;
+  color: white;
+}                              //退会しない、フォロー外すボタン終わり
+
+
+

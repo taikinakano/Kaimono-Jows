@@ -16,6 +16,11 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+.bglayout {
+  background-image: url("moroccan-flower.png");//背景画像
+  background-size: contain;
+}
+
 .notifications { //フラッシュメッセージ
   color: $white;
   text-align: center;
@@ -30,6 +35,7 @@
     background-color: alert_orange;
   }
 } 　　　　　　　//フラッシュメッセージ終わり
+
 
 .image-jaws {
   background-image: url("shark2.png");

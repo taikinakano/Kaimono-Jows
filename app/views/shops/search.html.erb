@@ -1,15 +1,32 @@
-<h1>検索結果</h1>
+<div class="bglayout py-5">
+<div class="container">
+<h1>検索結果</h1><!--並び替え後の画面-->
 
 <%= render 'shops/favorite_search', shop: @shop %> <!--いいね並び替え検索機能-->
-
 <% @shops.each do |shops| %>
- <p>
-    <%= link_to shops.user.email, user_path(shops.user.id) %>
-    <br>
-    <%= link_to shops.shop_name, shop_path(shops.id) %>
-    <br>
-    <%= shops.created_at %>
-    <br>
-    <%= render 'shops/favorite', shop: shops %>
-      <%= shops.favorites.count %>
+ <div class="d-flex wrap mt-4">
+   <div>
+    <div>
+      <%= link_to user_path(shops.user.id) do%>
+      <%= image_tag attachment_url(shops, :image, :fill, 100, 100, fallback: "no_image.jpeg"), size:'100x100' %>
+      <% end %>
+    </div>
+   </div>
+   <div class="ml-4 mt-2 w-50">
+     <div class"col-12 clearfix">
+       <div class="float-left col-7">
+        <%= link_to shops.shop_name, shop_path(shops.id) %>
+       </div>
+        <span class="float-right col-5">
+         <%= shops.address %>
+        </span>
+     </div>
+     <div class="mt-5">
+      <span class="mx-3">いいね数：<%= shops.favorites.count %></span>
+      <%= shops.created_at.to_s(:datetime_jp) %>
+     </div>
+   </div>
+</div>
   <% end %>
+</div>
+</div>

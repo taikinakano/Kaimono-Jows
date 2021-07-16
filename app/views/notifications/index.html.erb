@@ -1,0 +1,18 @@
+<!-- 自分の投稿に対するいいね、コメントは通知に表示しない-->
+<div class="bglayout">
+  <div class="container py-5">
+    <h4>通知一覧</h4>
+    <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+    <% if notifications.exists? %>
+      <%= render notifications %>
+      <%= paginate @notifications %>
+      <div>
+        <%= link_to "全ての通知を削除する", all_destroy_path, method: :delete %>
+      </div>
+    <% else %>
+      <div class="text-center" style="padding-top:200px; height: 400px;">
+        <h4>通知はありません</h4>
+      </div>
+    <% end %>
+  </div>
+</div>
