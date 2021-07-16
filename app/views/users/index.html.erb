@@ -1,34 +1,38 @@
-    <div class="container">
-    <div class="mt-4">
+<div class="bglayout">
+ <div class="container">
+   <div class="mt-4">
     <h4 class="mb-3">会員一覧</h4>
-     <table class="table">
-      <thead class="thead-dark">
+    <table class="table">
+     <thead class="thead-dark">
       <tr>
-      <th>会員画像</th>
-      <th>会員名</th>
-      <th>紹介文</th>
-      <th></th>
+       <th>会員画像</th>
+       <th>会員名</th>
+       <th>紹介文</th>
+       <th></th>
       </tr>
      </thead>
-     <tbody>
+      <tbody class="bg-light">
        <% @users.each do |users| %>
        <tr>
-         <td>
-         <%= link_to user_path(users.id) do %>
-         <%= image_tag attachment_url(users, :image, :fill, 50, 50, fallback: "no_image.jpeg"), size:'50x50' %>
-         <% end %>
-         </td>
-         <td>
-           <%= link_to user_path(users.id) do %>
-           <%= users.name %>
-           <% end %>
-          </td>
-          <td><%= users.introduction %></td>
-          <td><%= render "users/info", user: users %></td>
+        <td>
+        <%= link_to user_path(users.id) do %>
+        <%= image_tag attachment_url(users, :image, :fill, 50, 50, fallback: "no_image.jpeg"), size:'50x50' %>
+        <% end %>
+        </td>
+        <td>
+        <%= link_to user_path(users.id) do %>
+        <%= users.name %>
+        <% end %>
+        </td>
+        <td><%= users.introduction %></td>
+        <% if users != current_user %>
+        <td><%= render "users/info", user: users %></td><!--フォローの記述-->
+        <% end %>
        </tr>
        <% end %>
-     </tbody>
+      </tbody>
     </table>
     <%= paginate @users %>
-    </div>
-    </div>
+  </div>
+ </div>
+</div>

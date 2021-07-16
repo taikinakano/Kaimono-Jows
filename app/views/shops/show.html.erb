@@ -1,4 +1,5 @@
-<div class="container mt-5" style="width:90%;">
+<div class="bglayout py-5">
+<div class="container">
 <div class="d-flex wrap mx-auto"><!--コメントと商品詳細を分けるためのもの1-->
   <div><!--flex wrap１−１-->
     <div class="d-flex wrap"><!--商品の写真と文章を分けるためのもの2-->
@@ -31,5 +32,6 @@
     <div class="ml-5", id="shop_<%= @shop.id %>"><!--flex wrap１−２-->
     　<div class="shop_comments"><%= render "shop_comments/shop_comments", shop: @shop %></div><!--店の他者からのコメント-->
     </div>
+</div>
 </div>
 </div>

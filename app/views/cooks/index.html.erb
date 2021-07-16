@@ -1,3 +1,4 @@
+<div class="bglayout py-5">
 <div class="container">
   <div class="mt-4 d-flex wrap">
   <div>
@@ -18,35 +19,28 @@
      </table>
      <% end %>
     </div>
-  <div>
+  <div class="w-50">
   <%= render "cooks/tag_lists", cook_tags: @cook_tags %><!--タグリスト-->
   </span>
     <h4>登録されている料理</h4>
-     <table class="table">
-      <thead class="thead-dark">
-      <tr>
-      <th>料理画像</th>
-      <th>料理名</th>
-      </tr>
-     </thead>
-     <tbody>
-       <% @cooks.each do |cooks| %>
-       <tr>
-         <td>
-         <%= link_to cook_path(cooks.id) do %>
-         <%= attachment_image_tag cooks, :image, size: '200x150', formate: 'jpeg', fallback: "no_iamge.jpeg" %>
-         <% end %>
-         </td>
-         <td>
-           <%= link_to cook_path(cooks.id) do %>
-           <%= cooks.cook_name %>
-           <% end %>
-          </td>
-       </tr>
-       <% end %>
-       <%= paginate @cooks %>
-     </tbody>
-    </table>
+    <div class="d-flex flex-wrap">
+      <% @cooks.each do |cooks| %>
+            <div class="mr-3">
+              <div class="my-4">
+              <%= link_to cook_path(cooks.id) do %>
+              <%= attachment_image_tag cooks, :image, size: '200x150', formate: 'jpeg', fallback: "no_iamge.jpeg" %>
+              <% end %>
+              </div>
+              <div>
+              <%= link_to cook_path(cooks.id) do %>
+              <%= cooks.cook_name %>
+              <% end %>
+              </div>
+            </div>
+      <% end %>
+    </div>
+      <%= paginate @cooks %>
   </div>
   </div>
+</div>
 </div>

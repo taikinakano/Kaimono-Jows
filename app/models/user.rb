@@ -17,12 +17,13 @@ class User < ApplicationRecord
   has_many :shop_comments,             dependent: :destroy
   has_many :events,                    dependent: :destroy
   has_many :searchs,                   dependent: :destroy
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
   attachment :image
   attachment :bgimage
 
   validates :name,           presence: true, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :email,          presence: true
-  validates :introduction,   presence: true, length: { maximum: 100 }
 
 
   def follow(user_id)
@@ -36,4 +37,17 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
+
+
+  def create_notification_follow!(current_user) #follow通知機能
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        visited_id: id,
+        action: 'follow'
+      )
+      notification.save if notification.valid?
+    end
+  end
+
 end

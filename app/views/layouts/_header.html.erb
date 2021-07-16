@@ -6,6 +6,7 @@
     </div>
     <ul class="d-flex">
       <% if user_signed_in? %>
+      <li><%= link_to "通知", notifications_path, class:"btn-circle-fishy" %></li>
       <li><%= link_to "カレンダーを使う", event_path(current_user), class:"btn-circle-fishy" %></li>
       <li><%= link_to "店舗を見る", shops_path, class:"btn-circle-fishy" %></li>
       <li><%= link_to "会員を見る", users_path, class:"btn-circle-fishy" %></li>

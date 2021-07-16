@@ -1,7 +1,12 @@
 class SearchsController < ApplicationController
   before_action :search_params
  	def search                                   #user/show検索
-		if @model == 'shop_name'
+ 	  if @content == ''
+ 	  	@shop = Shop.new
+ 	  	@user = User.find(current_user.id)
+      @shops = @user.shops.page(params[:page]).reverse_order
+ 	  	render 'users/show'
+		elsif @model == 'shop_name'
 		  user = User.find(current_user.id)
 			@records = user.shops.search_for(@record, @method).page(params[:page]).reverse_order
 		else
@@ -16,6 +21,12 @@ class SearchsController < ApplicationController
 		else
 		 @records = Shop.searched_for(@record, @method).page(params[:page]).reverse_order
 		end
+	end
+
+	def shop_search
+		  #@records = Shop.search_for(@record, @method).page(params[:page]).reverse_order#絞り込み検索できるか実験
+	    #selection = params[:keyword]#絞り込み検索できるか実験
+      @shops = @records.shops.sort(selection)
 	end
 
 	private

@@ -1,13 +1,17 @@
-<h4>店舗編集</h4>
-<%= form_with model: @user, local:true do |f| %>
-<table class="table table-borderless">
-  <tr><th>背景画像</th><td><%= f.attachment_field :bgimage, placeholder: "ファイルを選択" %></td></tr>
-  <tr><th>会員画像</th><td><%= f.attachment_field :image, placeholder: "ファイルを選択" %></td></tr>
-  <tr><th>氏名</th><td><%= f.text_field :name %></td></tr>
-  <tr><th>メールアドレス</th><td><%= f.text_field :email %></td></tr>
-  <tr><th>紹介文</th><td><%= f.text_field :introduction %></td></tr>
-  <tr><th></th><td><%= f.submit "変更を保存" %></td></tr>
-  <tr><th></th><td><%= link_to "退会する", withdrow_confirm_user_path(current_user.id) %></td></tr>
-</table>
-<% end %>
+<div class="bglayout">
+  <div class="container py-5">
+    <h4>店舗編集</h4>
+    <%= form_with model: @user, local:true do |f| %>
+      <table class="table table-borderless">
+        <tr><th>背景画像</th><td><%= f.attachment_field :bgimage, placeholder: "ファイルを選択" %></td></tr>
+        <tr><th>会員画像</th><td><%= f.attachment_field :image, placeholder: "ファイルを選択" %></td></tr>
+        <tr><th>氏名</th><td><%= f.text_field :name %></td></tr>
+        <tr><th>メールアドレス</th><td><%= f.text_field :email %></td></tr>
+        <tr><th>紹介文</th><td><%= f.text_field :introduction %></td></tr>
+        <tr><th></th><td><%= f.submit "変更を保存" %></td></tr>
+        <tr><th></th><td><%= link_to "退会する", withdrow_confirm_user_path(current_user.id),class: "btn-flat-border" %></td></tr>
+      </table>
+      <% end %>
+  </div>
+</div>
 

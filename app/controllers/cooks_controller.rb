@@ -3,7 +3,7 @@ class CooksController < ApplicationController
     @cook_tags = Tag.all
     @cook = current_user.cooks.new
     @user = User.find(current_user.id)
-    @cooks = @user.cooks.page(params[:page]).reverse_order
+    @cooks = @user.cooks.page(params[:page]).per(20).reverse_order
   end
 
   def show
