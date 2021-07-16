@@ -38,15 +38,3 @@ function insertSpan(elem, letters, startTime) {
   }
 }
 
-// insertSpan(h1, wordsToArray(h1.textContent))
-// insertSpan(h2, wordsToArray(h2.textContent), .5)
-
-// document.addEventListener('mousemove', e => {
-//   let xpos = e.layerX || e.offsetX
-//   let ypos = e.layerY || e.offsetY
-
-//   let ax = -(window.innerWidth / 2 - xpos) / 20
-//   let ay = (window.innerHeight / 2 - ypos) / 10
-
-//   sentence.style.transform = `rotateY(${ax}deg) rotateX(${ay}deg)`
-// })
