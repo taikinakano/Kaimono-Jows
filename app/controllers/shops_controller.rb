@@ -42,9 +42,9 @@ class ShopsController < ApplicationController
   def update
     @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
-      redirect_to user_path(@shop.id)
+      redirect_to shop_path(@shop.id)
     else
-      render "edit"
+      render "shops/edit"
     end
   end
 

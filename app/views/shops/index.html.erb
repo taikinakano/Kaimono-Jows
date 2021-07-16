@@ -1,3 +1,4 @@
+    <div class="bglayout py-5">
     <div class="container">
     <div class="mt-4">
     <div class="container mt-3">
@@ -21,7 +22,7 @@
       <th>住所</th>
       </tr>
      </thead>
-     <tbody>
+     <tbody class="bg-light">
        <% @shops.each do |shops| %>
        <tr>
          <td>
@@ -29,16 +30,17 @@
          <%= attachment_image_tag shops, :image, size: '200x150', formate: 'jpeg', fallback: "no_iamge.jpeg" %>
          <% end %>
          </td>
-         <td>
+         <td class="pt-4">
            <%= link_to shop_path(shops.id) do %>
            <%= shops.shop_name %>
            <% end %>
           </td>
-          <td><%= shops.address %></td>
+          <td class="pt-4"><%= shops.address %></td>
        </tr>
        <% end %>
        <%= paginate @shops %>
      </tbody>
     </table>
+    </div>
     </div>
     </div>
