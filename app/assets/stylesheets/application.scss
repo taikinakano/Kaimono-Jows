@@ -16,9 +16,107 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+
+.image-jaws {
+  background-image: image-url("shark2.png");
+  background-size: contain;
+  height: 40px;
+  width: 56px;
+}
+// // //ハンバーガーメニュー
+body {
+    margin: 0;
+    display: flex;
+}
+main {
+    width: 100%;
+    margin: 0 auto;
+}
+aside {
+    width: 20%;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;//画面から見えなくする記述
+    top: 0px;
+    left: -300px;
+    height: 100%;
+    transition: all 0.2s;
+    background: #343a40;
+}
+.hambaga-item {         //ulのレイアウト
+    list-style: none;
+    padding-top: 150px;
+    padding-left: 30px;
+}
+
+.li-item {
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+
+// /* 🍔 */
+.open,
+.close {
+    display: none;
+}
+input[type="checkbox"] {
+    position: absolute;
+    left: -50vw;
+}
+// /* 🍔 */
+
+@media screen and (max-width: 1000px) {
+    main {
+        width: 100%;
+        // padding-top: 50px;
+    }
+//     /* 🍔 */
+    .open,
+    .close {
+        display: block;
+        z-index: 2;
+    }
+
+    .close {
+      font-size: 50px;
+      color: #fff;
+    }
+    .open {
+        position: absolute;
+        z-index: 1;
+        left: 90vw;
+        top: 30px;
+    }
+
+    .fa-user-circle {
+      color: #fff;
+      font-size: 70px;
+    }
+
+    input[type="checkbox"]:checked ~ aside { //checkboxと同じ親を持つ要素に適応
+        left: 0;
+    }
+    input[type="checkbox"]:checked ~ .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+    }
+    /* 🍔 */
+
+    .btn-rpmove {          //ヘッダーボタンの移動
+      position: absolute;
+      top: -100vw;
+    }
+}
+ //ハンバーガーメニュー終わり
+
 .bglayout {
   background-image: url("moroccan-flower.png");//背景画像
-  background-size: contain;
+  // background-size: contain;
 }
 
 .notifications { //フラッシュメッセージ
@@ -37,12 +135,6 @@
 } 　　　　　　　//フラッシュメッセージ終わり
 
 
-.image-jaws {
-  background-image: url("shark2.png");
-  background-size: contain;
-  height: 40px;
-  width: 56px;
-}
 
 .text-rogo {
   font-family: "Open Sans", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
