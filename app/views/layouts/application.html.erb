@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.css">
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
-  <header>
-    <%= render 'layouts/header' %>
-  </header>
+
   <body>
+    <%= render 'layouts/hambaga' %>
+    <main>
+    <%= render 'layouts/header' %>
     <%= yield %>
-  </body>
-  <footer>
     <%= render 'layouts/footer' %>
-  </footer>
+    </main>
+  </body>
 </html>

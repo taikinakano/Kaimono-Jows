@@ -1,48 +1,23 @@
 <nav class="navbar bg-dark">
     <div class="text-center ml-2">
-   <div class="image-jaws mx-auto"></div>
-    <h4 class="text-rogo text-light">KAIMONO JAWS</h4>
+     <div class="image-jaws mx-auto"></div>
+     <h4 class="text-rogo text-light">KAIMONO JAWS</h4>
       <p class="text-sbrogo text-light">EASY TO USE NOTEPAD</p>
     </div>
     <ul class="d-flex">
       <% if user_signed_in? %>
-      <li><%= link_to "通知", notifications_path, class:"btn-circle-fishy" %></li>
-      <li><%= link_to "カレンダーを使う", event_path(current_user), class:"btn-circle-fishy" %></li>
-      <li><%= link_to "店舗を見る", shops_path, class:"btn-circle-fishy" %></li>
-      <li><%= link_to "会員を見る", users_path, class:"btn-circle-fishy" %></li>
-      <li><%= link_to "料理一覧", cooks_path, class:"btn-circle-fishy" %></li>
-      <li><%= link_to "メモを使う", user_path(current_user), class:"btn-circle-fishy" %></li>
-       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn-circle-fishy" %></li>
+      <li><%= link_to "通知", notifications_path, class:"btn-circle-fishy btn-rpmove" %></li>
+      <li><%= link_to "カレンダーを使う", event_path(current_user), class:"btn-circle-fishy btn-rpmove" %></li>
+      <li><%= link_to "店舗を見る", shops_path, class:"btn-circle-fishy btn-rpmove" %></li>
+      <li><%= link_to "会員を見る", users_path, class:"btn-circle-fishy btn-rpmove" %></li>
+      <li><%= link_to "料理一覧", cooks_path, class:"btn-circle-fishy btn-rpmove" %></li>
+      <li><%= link_to "メモを使う", user_path(current_user), class:"btn-circle-fishy btn-rpmove" %></li>
+       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn-circle-fishy btn-rpmove" %></li>
       <% else %>
-      <li><%= link_to "詳しく見る", homs_about_path, class:"btn-circle-fishy"%></li>
-      <li><%= link_to "新規登録",  new_user_registration_path, class:"btn-circle-fishy" %></li>
-      <li><%= link_to "ログイン", new_user_session_path, class:"btn-circle-fishy" %></li>
+      <li><%= link_to "詳しく見る", homs_about_path, class:"btn-circle-fishy btn-rpmove"%></li>
+      <li><%= link_to "新規登録",  new_user_registration_path, class:"btn-circle-fishy btn-rpmove" %></li>
+      <li><%= link_to "ログイン", new_user_session_path, class:"btn-circle-fishy btn-rpmove" %></li>
       <% end %>
     </ul>
-    </div>
 </nav>
 
-        <!--<input id="menu" type="checkbox" />-->
-        <!--<label for="menu" class="open">🍔</label>-->
-        <!--<label for="menu" class="back"></label>-->
-
-        <!--<label for="menu" class="close">×</label>-->
-
-        <!--<aside>-->
-            <!-- 🍔 -->
-        <!--    <label for="menu" class="close">×</label>-->
-            <!-- 🍔 -->
-
-        <!--    <nav>-->
-        <!--        <ul>-->
-        <!--            <li>list1</li>-->
-        <!--            <li>list2</li>-->
-        <!--            <li>list3</li>-->
-        <!--            <li>list4</li>-->
-        <!--            <li>list5</li>-->
-        <!--        </ul>-->
-        <!--    </nav>-->
-        <!--    <div>-->
-        <!--        side footer-->
-        <!--    </div>-->
-        <!--</aside>-->
