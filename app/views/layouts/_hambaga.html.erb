@@ -1,0 +1,24 @@
+
+<input id="menu" type="checkbox" />
+<label for="menu" class="open"><span class="fas fa-user-circle"></span></label>
+<label for="menu" class="back"></label>
+
+
+<aside>
+ <label for="menu" class="close">×</label>
+    <ul class="hambaga-item">
+      <% if user_signed_in? %>
+      <li class="li-item"><%= link_to "通知", notifications_path, class:"text-light far fa-bell" %></li>
+      <li class="li-item"><%= link_to "カレンダーを使う", event_path(current_user), class:"text-light far fa-calendar-alt" %></li>
+      <li class="li-item"><%= link_to "店舗を見る", shops_path, class:"text-light fas fa-store-alt" %></li>
+      <li class="li-item"><%= link_to "会員を見る", users_path, class:"text-light fas fa-users" %></li>
+      <li class="li-item"><%= link_to "料理一覧", cooks_path, class:"text-light fas fa-utensils" %></li>
+      <li class="li-item"><%= link_to "メモを使う", user_path(current_user), class:"text-light fas fa-user-edit" %></li>
+       <li class="li-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"text-light fas fa-sign-out-alt" %></li>
+      <% else %>
+      <li class="li-item"><%= link_to "詳しく見る", homs_about_path, class:"text-light fas fa-toolboxl" %></li>
+      <li class="li-item"><%= link_to "新規登録",  new_user_registration_path, class:"text-light fas fa-user-plus" %></li>
+      <li class="li-item"><%= link_to "ログイン", new_user_session_path, class:"text-light fas fa-sign-in-alt" %></li>
+      <% end %>
+    </ul>
+</aside>
