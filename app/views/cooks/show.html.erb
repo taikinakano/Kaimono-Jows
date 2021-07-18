@@ -1,6 +1,6 @@
 <div class="bglayout py-5">
   <div class="container">
-   <div class="mt-4 mx-auto w-75">
+   <div class="mt-4 mx-auto w-100">
     <h4>商品詳細</h4>
      <div class="d-flex flex-wrap">
       <div class="d-flex wrap w-50">
@@ -10,7 +10,7 @@
        <div>
          <table class="table table-borderless">
            <tr><th>料理名</th></tr><tr><td><%= @cook.cook_name %></td></tr>
-           <tr><th>材料</th></tr><tr><td class="bg-light p-2"><%= @cook.cook_material %></td></tr>
+           <tr><th>材料</th></tr><tr><td class="bg-light p-2 text-break" style="width: 100px;"><%= @cook.cook_material %></td></tr>
          </table>
           <% if @user == current_user %>
            <%= link_to "編集する", edit_cook_path(@cook.id), class: "fas fa-edit" %>
@@ -24,7 +24,7 @@
         </div>
         <div class="w-50">
           <h5>作り方</h5>
-          <div class="bg-light mt-1 p-3"><%= @cook.cook_method %></div>
+          <div class="bg-light mt-1 p-3 text-break"><%= @cook.cook_method %></div>
         </div>
      </div>
      </div>
