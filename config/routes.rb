@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   delete    'notifications'                 => 'notifications#all_destroy', as: 'all_destroy'
   resources :messages,       only: [:show, :create]
   resources :cooks,          only:[:index, :show, :create, :edit, :update, :destroy]
+  resources :tags,           only:[:show, :destroy]
   resources :events,         only:[:show, :create, :destroy, :edit, :update]
   resources :shops,          only:[:index, :show, :create, :edit, :update, :destroy, :search] do
    resources :products

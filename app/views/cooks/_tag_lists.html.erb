@@ -1,3 +1,4 @@
+
    <h4> タグリスト</h4>
    <% cook_tags.each do |list| %>
      <span>
@@ -5,3 +6,4 @@
        <%= "(#{list.cooks.count})" %>
      </span>
    <% end %>
+   <%= link_to "タグ管理", tag_path(cook_tags), class: "fas fa-edit ml-4" %>

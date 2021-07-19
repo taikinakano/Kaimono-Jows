@@ -1,0 +1,15 @@
+<div class="bglayout py-5" style="height: 500px;">
+  <div class=" container">
+  <div style="border-bottom:2px solid black">
+  <h4 class="mb-4">タグリスト</h4>
+  <% @tags.each do |tags| %>
+    <span class="mr-4">
+    <%= link_to tags.tag_name, cooks_path %>
+    <%= "(#{tags.cooks.count})" %>
+    <%= link_to "", tag_path(tags), method: :delete, class: "fas fa-trash-alt" %>
+    </span>
+  <% end %>
+  </div>
+  <%= link_to "戻る", cooks_path, class: "fas fa-undo mt-4" %>
+  </div>
+</div>

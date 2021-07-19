@@ -19,8 +19,9 @@ class ProductsController < ApplicationController
     @shop = Shop.find(params[:shop_id])
     @product = @shop.products.new(product_params)
     if @product.save
-    redirect_to shop_products_path(@shop)
+    redirect_to shop_products_path(@shop),notice: '商品が登録されました'
     else
+      flash.now[:alert] = '商品の登録に失敗しました'
       render "index"
     end
   end
@@ -34,8 +35,9 @@ class ProductsController < ApplicationController
     @shop = Shop.find(params[:shop_id])
     @product = @shop.products.find(params[:id])
     if @product.update(product_params)
-    redirect_to shop_products_path
+    redirect_to shop_products_path, notice: '商品が更新されました'
     else
+      flash.now[:alert] = '商品の更新に失敗しました'
       render "edit"
     end
   end
@@ -46,7 +48,6 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to shop_products_path
   end
-
   private
 
   def product_params
