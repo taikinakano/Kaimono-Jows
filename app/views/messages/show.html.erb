@@ -1,0 +1,30 @@
+<div class="bglayout py-5">
+<div class="container">
+<div class="mb-5">
+<h1 id="room" data-room="<%= @room.id %>" data-user="<%= current_user.id %>"><%= @user.name %> さんとのチャット</h1>
+</div>
+
+<div class="message" style="width: 80%;">
+  <% @messages.each do |message| %>
+    <% if message.user_id == current_user.id %>
+      <div class="row-12 d-flex now-wrap">
+       <div class="col-8"></div>
+       <p  class="col-4 rounded" style="background-color: #33FFCC; text-align: left;"><%= message.message %></p>
+      </div>
+    <% else %>
+      <div class="d-flex wrap">
+      <%= image_tag attachment_url(message.user, :image, :fill, 100, 100, fallback: "no_image.jpeg"), size:'100x100', class:"rounded-circle" %>
+      <p class="bg-light rounded" style="width:30vw; text-align: left;"><%= message.message %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div class="mt-4">
+<%= form_with model: @message, data: {remote: true} do |f| %>
+  <%= f.text_area :message, size: "50x5", placeholder: "話しかけてみましょう" %>
+  <%= f.hidden_field :room_id %>
+  <%= f.submit "送信", class:"btn-float-border-message" %>
+<% end %>
+</div>
+</div>
+</div>
