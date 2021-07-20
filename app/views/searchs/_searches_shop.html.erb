@@ -11,7 +11,7 @@
         <% @records.each do |shop| %>
           <tbody class="bg-light">
             <tr>
-              <td><%= image_tag attachment_url(shop, :image, :fill, 100, 100, fallback: "no_image.jpeg"), size:'100x100' %></td>
+              <td><%= image_tag attachment_url(shop, :image, :fill, 100, 100, fallback: "no_image.jpg"), size:'100x100' %></td>
               <td class="pt-4">
                 <%= link_to shop_path(shop) do %>
                  <%= shop.shop_name %>

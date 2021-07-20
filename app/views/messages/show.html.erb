@@ -13,7 +13,7 @@
       </div>
     <% else %>
       <div class="d-flex wrap">
-      <%= image_tag attachment_url(message.user, :image, :fill, 100, 100, fallback: "no_image.jpeg"), size:'100x100', class:"rounded-circle" %>
+      <%= image_tag attachment_url(message.user, :image, :fill, 100, 100, fallback: "no_image.jpg"), size:'100x100', class:"rounded-circle" %>
       <p class="bg-light rounded" style="width:30vw; text-align: left;"><%= message.message %></p>
       </div>
     <% end %>
