@@ -1,16 +1,11 @@
 <div class="bglayout py-5">
-<div class="notifications">
-  <% flash.each do |key, value| %>
-  <%= content_tag(:div, value, class: key) %>
-  <% end %>
-</div>
 <div class="container">
 <h4 class="my-4">店舗名：<%= @shop.shop_name %></h4>
   <div>商品一覧</div>
   <%= link_to '新規投稿', new_shop_product_path(@shop), class: "fas fa-plus mr-2" %>
   <%= link_to "ジャンル登録", new_shop_genre_path(@shop), class: "fas fa-plus" %>
   <% if @products.exists? %>
-  <div class="d-flex wrap" style="width: 100%;">
+  <div class="d-flex flex-wrap" style="width: 100%;">
    <% @products.each do |products| %>
     <div class="mt-4 mr-3">
     <div>

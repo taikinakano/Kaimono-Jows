@@ -33,34 +33,34 @@ body {
   font-family: "Open Sans", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 }
 .image {
-  background-image: url("shark2.png");
+  background-image: image-url("shark2.png");
   background-size: contain;
   height: 65px;
   width: 90px;
 }
 .top-image2 {
-  background-image: url("memo.png");
+  background-image: image-url("memo.png");
   background-size: cover;
   height: 750px;
   width: 50%;
 }
 
 .memo-image {
-  background-image: url("notepad.png");
+  background-image: image-url("notepad.png");
   background-size: contain;
   height: 100px;
   width: 105px;
 }
 
 .arrow-image {
-  background-image: url("arrow.png");
+  background-image: image-url("arrow.png");
   background-size: contain;
   height: 50px;
   width: 95px;
 }
 
 .shop-image {
-  background-image: url("shop.png");
+  background-image: image-url("shop.png");
   background-size: contain;
   height: 100px;
   width: 100px;
@@ -76,3 +76,76 @@ body {
 }
 
 //about画面
+.aboutimage {
+  background-image: image-url("grow.png");
+  background-size: cover;
+  background-position: bottom 800px right 0px;
+  height: 300px;
+  width: 100%;
+}
+
+.image-jaws2 {
+  background-image: image-url("shark.png");
+  background-size: contain;
+  height: 40px;
+  width: 56px;
+}
+
+.appimage {
+  background-image: image-url("appimage.png");
+  background-size: contain;
+  height: 200px;
+  width: 30vw;
+}
+
+//４段目
+.productimage {
+  background-image: image-url("productimage.png");
+  background-size: contain;
+  height: 190px;
+  width: 30vw;
+}
+
+//5段目
+.shopimage {
+  background-image: image-url("shopimage.png");
+  background-size: contain;
+  height: 200px;
+  width: 30vw;
+}
+
+//6段目
+.heartimage {
+  background-image: image-url("heart.png");
+  background-size: cover;
+}
+
+.commentimage {
+  background-image: image-url("comment.png");
+  background-size: cover;
+}
+
+.dmimage {
+  background-image: image-url("discussion.png");
+  background-size: cover;
+}
+.noteimage {
+  background-image: image-url("back-note.png");
+  background-size: cover;
+}
+
+.calenderimage {
+  background-image: image-url("calender.png");
+  background-size: cover;
+}
+
+.vegimage {
+  background-image: image-url("vegetable.png");
+  background-size: cover;
+}
+.card {
+  border: 1px solid #333333;
+  margin: 5px 20px;
+  border-radius: .10rem;
+  box-shadow: 20px -10px 25px 0 #d9d9d9;
+}
