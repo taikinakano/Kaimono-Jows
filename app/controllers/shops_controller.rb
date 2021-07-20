@@ -12,13 +12,6 @@ class ShopsController < ApplicationController
   def create
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
-    if @shop.shop_name.match(/[一-龠々]/)
-      @shop.conversion_shop_name = @shop.shop_name.to_kanhira.to_roman
-    elsif @shop.shop_name.is_hira? || @shop.shop_name.is_kana?
-      @shop.conversion_shop_name = @shop.shop_name.to_roman
-    else
-      @shop.conversion_shop_name = @shop.shop_name
-    end
     if @shop.address.match(/[一-龠々]/)
       @shop.conversion_address = @shop.address.to_kanhira.to_roman
     elsif @shop.address.is_hira? || @shop.address.is_kana?
@@ -26,11 +19,19 @@ class ShopsController < ApplicationController
     else
       @shop.conversion_address = @shop.address
     end
+    if @shop.shop_name.match(/[一-龠々]/)
+      @shop.conversion_shop_name = @shop.shop_name.to_kanhira.to_roman
+    elsif @shop.shop_name.is_hira? || @shop.shop_name.is_kana?
+      @shop.conversion_shop_name = @shop.shop_name.to_roman
+    else
+      @shop.conversion_shop_name = @shop.shop_name
+    end
     if @shop.save
      redirect_to shop_path(@shop.id), notice: '店舗が登録されました。'
     else
       @user = User.find(current_user.id)
       @shops = @user.shops.page(params[:page]).reverse_order
+      flash.now[:alert] = '店舗の登録に失敗しました'
       render "users/show"
     end
   end
@@ -42,8 +43,9 @@ class ShopsController < ApplicationController
   def update
     @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
-      redirect_to shop_path(@shop.id)
+      redirect_to shop_path(@shop.id), notice: '店舗の更新に成功しました'
     else
+      flash.now[:alert] = '店舗の更新に失敗しました'
       render "shops/edit"
     end
   end

@@ -1,9 +1,4 @@
 <div class="bglayout py-5">
-<div class="notifications">
-  <% flash.each do |key, value| %>
-  <%= content_tag(:div, value, class: key) %>
-  <% end %>
-</div>
 <div class="container">
 <h4 class="my-4">店舗名：<%= @shop.shop_name %></h4>
   <div>商品一覧</div>

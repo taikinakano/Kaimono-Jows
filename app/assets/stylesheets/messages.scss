@@ -1,3 +1,17 @@
-// Place all the styles related to the messages controller here.
+// Place all the styles related to the Messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.btn-float-border-message { //DM機能ボタン
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: 		#008000;
+  border: solid 2px #008000;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.btn-float-border-message:hover {
+  background: #008000;
+  color: white;
+}                  //DM機能ボタン
