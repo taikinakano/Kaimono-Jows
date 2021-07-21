@@ -15,3 +15,9 @@
   background: #008000;
   color: white;
 }                  //DM機能ボタン
+
+@media screen and (max-width: 959px) {
+  .messagerespons {
+    width: 90vw;
+  }
+}
