@@ -7,25 +7,43 @@ class SearchsController < ApplicationController
       @shops = @user.shops.page(params[:page]).reverse_order
  	  	render 'users/show'
 		elsif @model == 'shop_name'
+		  unless @content.blank?                        #漢字、ひらがな、ローマ字検索記述
+	      if @content.match(/[一-龠々]/)
+	          @record = @content.to_kanhira.to_roman
+	      elsif @content.is_hira? || @content.is_kana?
+	         @record = @content.to_roman
+	      else
+	          @record = @content
+	      end
+	    end
 		  user = User.find(current_user.id)
 			@records = user.shops.search_for(@record, @method).page(params[:page]).reverse_order
 		else
 		 user = User.find(current_user.id)
-		 @records = Shop.searched_for(@record, @method).page(params[:page]).reverse_order
+		 @records = user.shops.searched_for(@content, @method).page(params[:page]).reverse_order
 		end
 	end
 
 	def searches                                 #shop/imdex検索
 		if @model == 'shop_name'
+		  unless @content.blank?                        #漢字、ひらがな、ローマ字検索記述
+	      if @content.match(/[一-龠々]/)
+	          @record = @content.to_kanhira.to_roman
+	      elsif @content.is_hira? || @content.is_kana?
+	         @record = @content.to_roman
+	      else
+	          @record = @content
+	      end
+	    end
 			@records = Shop.search_for(@record, @method).page(params[:page]).reverse_order
 		else
-		 @records = Shop.searched_for(@record, @method).page(params[:page]).reverse_order
+		 @records = Shop.searched_for(@content, @method).page(params[:page]).reverse_order
 		end
 	end
 
+
+
 	def shop_search
-		  #@records = Shop.search_for(@record, @method).page(params[:page]).reverse_order#絞り込み検索できるか実験
-	    #selection = params[:keyword]#絞り込み検索できるか実験
       @shops = @records.shops.sort(selection)
 	end
 
@@ -34,14 +52,5 @@ class SearchsController < ApplicationController
 	  @model = params[:model]
 		@content = params[:content]
 		@method = params[:method]
-	  unless @content.blank?                        #漢字、ひらがな、ローマ字検索記述
-      if @content.match(/[一-龠々]/)
-          @record = @content.to_kanhira.to_roman
-      elsif @content.is_hira? || @content.is_kana?
-         @record = @content.to_roman
-      else
-          @record = @content
-      end
-    end
   end
 end

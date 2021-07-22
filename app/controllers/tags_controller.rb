@@ -1,8 +1,5 @@
 class TagsController < ApplicationController
 
-  def show
-    @tags = Tag.all
-  end
 
   def destroy
     @tag = Tag.find(params[:id])

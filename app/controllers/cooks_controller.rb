@@ -1,9 +1,9 @@
 class CooksController < ApplicationController
   def index
-    @cook_tags = Tag.all
     @cook = current_user.cooks.new
     @user = User.find(current_user.id)
     @cooks = @user.cooks.page(params[:page]).per(20).reverse_order
+    @cook_tags = @user.cooks.map(&:tags).flatten.uniq
   end
 
   def show
@@ -48,9 +48,15 @@ class CooksController < ApplicationController
   end
 
   def search
-    @cook_tags = Tag.all                                             #こっちの投稿一覧表示ページでも全てのタグを表示するために、タグを全取得
+    @user = User.find(current_user.id)
+    @cook_tags = @user.cooks.map(&:tags).flatten.uniq               #こっちの投稿一覧表示ページでも全てのタグを表示するために、タグを全取得
     @tag = Tag.find(params[:tag_id])                                #クリックしたタグを取得
     @cooks = @tag.cooks.page(params[:page]).reverse_order           #クリックしたタグに紐付けられた投稿を全て表示
+  end
+
+  def tags
+    @user = User.find(current_user.id)
+    @cook_tags = @user.cooks.map(&:tags).flatten.uniq
   end
 
   private

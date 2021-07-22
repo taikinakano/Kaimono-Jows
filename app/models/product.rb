@@ -7,4 +7,8 @@ class Product < ApplicationRecord
 
   validates :product_name, presence: true
 
+  def self.ProductSearch_for(content, method)
+      Product.where('conversion_product LIKE ?', '%'+content+'%')
+  end
+
 end

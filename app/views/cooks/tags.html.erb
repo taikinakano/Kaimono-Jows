@@ -2,7 +2,7 @@
   <div class=" container">
   <div style="border-bottom:2px solid black">
   <h4 class="mb-4">タグリスト</h4>
-  <% @tags.each do |tags| %>
+  <% @cook_tags.each do |tags| %>
     <span class="mr-4">
     <%= link_to tags.tag_name, cooks_path %>
     <%= "(#{tags.cooks.count})" %>

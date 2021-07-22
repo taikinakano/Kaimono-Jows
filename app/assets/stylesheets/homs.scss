@@ -76,10 +76,12 @@ body {
 }
 
 //about画面
+.abouttoptext {
+  background-color: rgba(192, 192, 192, 0.5);
+}
 .aboutimage {
   background-image: image-url("grow.png");
   background-size: cover;
-  background-position: bottom 800px right 0px;
   height: 300px;
   width: 100%;
 }
@@ -93,25 +95,25 @@ body {
 
 .appimage {
   background-image: image-url("appimage.png");
-  background-size: contain;
+  background-size: cover;
   height: 200px;
-  width: 30vw;
+  width: 400px;
 }
 
 //４段目
 .productimage {
   background-image: image-url("productimage.png");
-  background-size: contain;
-  height: 190px;
-  width: 30vw;
+  background-size: cover;
+  height: 200px;
+  width: 400px;
 }
 
 //5段目
 .shopimage {
   background-image: image-url("shopimage.png");
-  background-size: contain;
+  background-size: cover;
   height: 200px;
-  width: 30vw;
+  width: 400px;
 }
 
 //6段目
@@ -152,6 +154,42 @@ body {
 
 //モーダルウィンドウ内記述
 .bookmarkimage {
-  background-image: image-url("favoritimage.png");
+  background-image: image-url("bookmarkimage.png");
   background-size: cover;
+  height: 200px;
+  width: 100%;
+}
+
+.favoriteimage {
+  background-image: image-url("favoriteimage.png");
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+}
+
+.mcommentimage {
+  background-image: image-url("commentimage.png");
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+}
+
+.DMimage {
+  background-image: image-url("messageimage.png");
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+}
+
+.mcalenderimage {
+  background-image: image-url("calenderimage.png");
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+}
+
+@media screen and (max-width: 959px) {
+.appimage {
+  margin: 0 auto;
+}
 }
