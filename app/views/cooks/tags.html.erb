@@ -4,12 +4,12 @@
   <h4 class="mb-4">タグリスト</h4>
   <% @cook_tags.each do |tags| %>
     <span class="mr-4">
-    <%= link_to tags.tag_name, cooks_path %>
+    <%= link_to tags.tag_name, user_cooks_path(@user) %>
     <%= "(#{tags.cooks.count})" %>
     <%= link_to "", tag_path(tags), method: :delete, class: "fas fa-trash-alt" %>
     </span>
   <% end %>
   </div>
-  <%= link_to "戻る", cooks_path, class: "fas fa-undo mt-4" %>
+  <%= link_to "戻る", user_cooks_path(@user), class: "fas fa-undo mt-4" %>
   </div>
 </div>

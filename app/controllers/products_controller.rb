@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
       @product.conversion_product = @product.product_name
     end
     if @shop.user != current_user
-      flash.now[:alert] = 'ユーザー以外が編集することはできません'#ユーザー以外を弾く
+      flash.now[:alert] = 'ユーザー以外が登録することはできません'#ユーザー以外を弾く
       @products = @shop.products.page(params[:page]).per(20).reverse_order
       render "products/index"
     else

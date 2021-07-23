@@ -6,7 +6,7 @@
     <%= render "cooks/user_cook_info", user: @user %>
     </div>
       <h4>料理登録</h4>
-      <%= form_with model: @cook, local:true do |f| %>
+      <%= form_with model: [@user, @cook], local:true do |f| %>
       <table class="table table-borderless">
        <tr><th>店舗画像</th><th><%= f.attachment_field :image, placeholder: "ファイルを選択" %></th></tr>
        <tr><th>料理名</th><th><%= f.text_field :cook_name %></th></tr>
@@ -27,12 +27,12 @@
       <% @cooks.each do |cooks| %>
             <div class="mr-3">
               <div class="my-4">
-              <%= link_to cook_path(cooks.id) do %>
+              <%= link_to user_cook_path(@user, cooks) do %>
               <%= attachment_image_tag cooks, :image, size: '200x150', formate: 'jpg', fallback: "no_iamge.jpg" %>
               <% end %>
               </div>
               <div>
-              <%= link_to cook_path(cooks.id) do %>
+              <%= link_to user_cook_path(@user, cooks.id) do %>
               <%= cooks.cook_name %>
               <% end %>
               </div>

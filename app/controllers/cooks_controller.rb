@@ -1,50 +1,72 @@
 class CooksController < ApplicationController
   def index
-    @cook = current_user.cooks.new
-    @user = User.find(current_user.id)
+    @user = User.find(params[:user_id])
+    @cook = @user.cooks.new
     @cooks = @user.cooks.page(params[:page]).per(20).reverse_order
     @cook_tags = @user.cooks.map(&:tags).flatten.uniq
   end
 
   def show
-    @user = User.find(current_user.id)
+    @user = User.find(params[:user_id])
     @cook = @user.cooks.find(params[:id])
     @cook_tags = @cook.tags
   end
 
   def create
-    @cook = current_user.cooks.new(cook_params)
+    @user = User.find(params[:user_id])
+    @cook = @user.cooks.new(cook_params)
     tag_list = params[:cook][:tag_name].split(nil)
-    if @cook.save
-    @cook.save_tag(tag_list)
-    redirect_to cooks_path
+    if @user != current_user
+      flash.now[:alert] = 'ユーザー以外が登録することはできません'
+      @user = User.find(params[:user_id])
+      @cook_tags = @user.cooks.map(&:tags).flatten.uniq
+      @cooks = @user.cooks.page(params[:page]).per(20).reverse_order
+      render "cooks/index"
     else
-      render "index"
+      if @cook.save
+        @cook.save_tag(tag_list)
+        redirect_to user_cooks_path, notice: '料理が登録されました'
+      else
+        flash.now[:alert] = '料理の登録に失敗しました'
+        @user = User.find(params[:user_id])
+        @cook_tags = @user.cooks.map(&:tags).flatten.uniq
+        @cooks = @user.cooks.page(params[:page]).per(20).reverse_order
+        render "cooks/index"
+      end
     end
   end
 
   def edit
-    @user = User.find(current_user.id)
+    @user = User.find(params[:user_id])
     @cook = @user.cooks.find(params[:id])
   end
 
   def update
-    @user = User.find(current_user.id)
+    @user = User.find(params[:user_id])
     @cook = @user.cooks.find(params[:id])
     tag_list = params[:cook][:tag_name].split(nil)
-    if @cook.update(cook_params)
-    @cook.save_tag(tag_list)
-    redirect_to cook_path(@cook.id)
+    if @user != current_user
+      flash.now[:alert] = 'ユーザー以外が編集することはできません'
+      @user = User.find(params[:user_id])
+      @cook_tags = @user.cooks.map(&:tags).flatten.uniq
+      @cooks = @user.cooks.page(params[:page]).per(20).reverse_order
+      render "cooks/index"
     else
-      render "edit"
+      if @cook.update(cook_params)
+      @cook.save_tag(tag_list)
+      redirect_to user_cook_path(@user, @cook.id)
+      else
+        flash.now[:alert] = '編集に失敗しました'
+        render "edit"
+      end
     end
   end
 
   def destroy
-    @user = User.find(current_user.id)
+    @user = User.find(params[:user_id])
     @cook = @user.cooks.find(params[:id])
     @cook.destroy
-    redirect_to cooks_path
+    redirect_to user_cooks_path
   end
 
   def search
