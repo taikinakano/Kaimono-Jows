@@ -1,8 +1,10 @@
 <nav class="navbar bg-dark">
     <div class="text-center ml-2">
+      <a href="/">
      <div class="image-jaws mx-auto"></div>
      <h4 class="text-rogo text-light">KAIMONO JAWS</h4>
       <p class="text-sbrogo text-light">EASY TO USE NOTEPAD</p>
+      </a>
     </div>
     <ul class="d-flex">
       <% if user_signed_in? %>
@@ -10,7 +12,7 @@
       <li><%= link_to "カレンダーを使う", event_path(current_user), class:"btn-circle-fishy btn-rpmove" %></li>
       <li><%= link_to "店舗を見る", shops_path, class:"btn-circle-fishy btn-rpmove" %></li>
       <li><%= link_to "会員を見る", users_path, class:"btn-circle-fishy btn-rpmove" %></li>
-      <li><%= link_to "料理一覧", cooks_path, class:"btn-circle-fishy btn-rpmove" %></li>
+      <li><%= link_to "料理一覧", user_cooks_path(current_user), class:"btn-circle-fishy btn-rpmove" %></li>
       <li><%= link_to "メモを使う", user_path(current_user), class:"btn-circle-fishy btn-rpmove" %></li>
        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"btn-circle-fishy btn-rpmove" %></li>
       <% else %>

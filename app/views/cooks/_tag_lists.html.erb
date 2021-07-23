@@ -6,4 +6,6 @@
        <%= "(#{list.cooks.count})" %>
      </span>
    <% end %>
-   <%= link_to "タグ管理", tag_path(cook_tags), class: "fas fa-edit ml-4" %>
+   <% if @user == current_user %>
+    <%= link_to "タグ管理", cooks_tag_path, class: "fas fa-edit ml-4" %>
+   <% end %>

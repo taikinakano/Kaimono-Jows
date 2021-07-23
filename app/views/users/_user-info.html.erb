@@ -1,8 +1,8 @@
-    <%= image_tag attachment_url(user, :bgimage, :fill, 300, 300, fallback: "no_image.jpeg"), size:'800x200', class: "col-sm-12 w-100" %>
+    <%= image_tag attachment_url(user, :bgimage, :fill, 300, 300, fallback: "no_image.jpg"), size:'800x200', class: "col-sm-12 w-100" %>
     <div class="mb-4 ml-3">
     <div class="d-flex wrap">
       <div>
-       <%= image_tag attachment_url(user, :image, :fill, 300, 300, fallback: "no_image.jpeg"), size:'200x200', class:"rounded-circle" %>
+       <%= image_tag attachment_url(user, :image, :fill, 300, 300, fallback: "no_image.jpg"), size:'200x200', class:"rounded-circle" %>
       </div>
       <div class="ml-4">
       <div>利用者名：<%= user.name %></div>
@@ -12,6 +12,7 @@
        <div>
         <% if user != current_user %>
         <%= render "users/info", user: user %>
+        <%= link_to "料理ページを見る", user_cooks_path(user), class:"btn-flat-cook" %>
         <% end %>
         <% if user == current_user %>
         <%= link_to "編集", edit_user_path(user), class: "fas fa-edit" %>

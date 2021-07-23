@@ -1,0 +1,22 @@
+
+  <% if @records.exists? %>
+  <div class="d-flex flex-wrap" style="width: 100%;">
+   <% @records.each do |product| %>
+    <div class="mt-4 mr-3">
+    <div>
+     <%= image_tag attachment_url(product, :image, :fill, 100, 100, fallback: "no_image.jpg"), size:'100x100' %>
+    </div>
+    <div>
+    <%= link_to shop_product_path(@shop, product) do %>
+      <%= product.product_name %>
+    <% end %>
+    </div>
+    <div><%= product.price %>円</div>
+    </div>
+    <% end %>
+    </div>
+    <%= paginate @records %>
+  <% else %>
+    <div class="d-flex align-items-center justify-content-center" style="height:500px">
+      <h4> 該当の商品はありません</h4>
+  <% end %>

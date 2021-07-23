@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @shop = Shop.new
     @user = User.find(params[:id])
     @shops = @user.shops.page(params[:page]).reverse_order
+
   end
 
   def create
@@ -21,8 +22,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-     redirect_to user_path(@user)
+     redirect_to user_path(@user), notice: '編集に成功しました'
     else
+      flash.now[:alert] = '編集に失敗しました'      
       render "edit"
     end
   end
@@ -43,6 +45,33 @@ class UsersController < ApplicationController
     reset_session
     redirect_to root_path
   end
+
+ 	def search                                   #user/show検索
+	  @model = params[:model]
+	  @content = params[:content]
+	  @method = params[:method]
+ 	  if @content == ''
+ 	  	@shop = Shop.new
+ 	  	@user = User.find(params[:id])
+      @shops = @user.shops.page(params[:page]).reverse_order
+ 	  	render 'users/show'
+		elsif @model == 'shop_name'
+		  unless @content.blank?                        #漢字、ひらがな、ローマ字検索記述
+	      if @content.match(/[一-龠々]/)
+	          @record = @content.to_kanhira.to_roman
+	      elsif @content.is_hira? || @content.is_kana?
+	         @record = @content.to_roman
+	      else
+	          @record = @content
+	      end
+	   end
+		  user = User.find(params[:id])
+			@records = user.shops.search_for(@record, @method).page(params[:page]).reverse_order
+		else
+		 user = User.find(params[:id])
+		 @records = user.shops.searched_for(@content, @method).page(params[:page]).reverse_order
+		end
+	end
 
 
 

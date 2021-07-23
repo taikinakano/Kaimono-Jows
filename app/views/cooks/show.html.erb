@@ -5,18 +5,18 @@
      <div class="d-flex flex-wrap">
       <div class="d-flex wrap w-50">
        <div class="mr-3">
-         <%= image_tag attachment_url(@cook, :image, :fill, 300, 300, fallback: "no_image.jpeg"), size:'200x200' %>
+         <%= image_tag attachment_url(@cook, :image, :fill, 300, 300, fallback: "no_image.jpg"), size:'200x200' %>
        </div>
        <div>
          <table class="table table-borderless">
            <tr><th>料理名</th></tr><tr><td><%= @cook.cook_name %></td></tr>
            <tr><th>材料</th></tr><tr><td class="bg-light p-2 text-break" style="width: 100px;"><%= @cook.cook_material %></td></tr>
          </table>
-          <% if @user == current_user %>
-           <%= link_to "編集する", edit_cook_path(@cook.id), class: "fas fa-edit" %>
-           <%= link_to "削除する", cook_path(@cook.id), method: :delete, class: "fas fa-trash-alt mx-3" %>
-          <% end %>
-           <%= link_to "戻る", cooks_path, class: "fas fa-undo" %>
+          <%# if @user == current_user %>
+           <%= link_to "編集する", edit_user_cook_path(@user, @cook), class: "fas fa-edit" %>
+           <%= link_to "削除する", user_cook_path(@user, @cook), method: :delete, class: "fas fa-trash-alt mx-3" %>
+          <%# end %>
+           <%= link_to "戻る", user_cooks_path, class: "fas fa-undo" %>
           <div class="mt-3">
            <%= render "cooks/tag_lists", cook_tags: @cook_tags %><!--タグの記述-->
           </div>

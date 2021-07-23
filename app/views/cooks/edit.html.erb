@@ -1,7 +1,7 @@
 <div class="bglayout py-5">
   <div class="container">
   <h4>店舗編集</h4>
-  <%= form_with model: @cook, local:true do |f| %>
+  <%= form_with model: [@user, @cook], local:true do |f| %>
   <table class="table table-borderless">
     <tr><th>料理画像</th><td><%= f.attachment_field :image, placeholder: "ファイルを選択" %></td></tr>
     <tr><th>料理名</th><td><%= f.text_field :cook_name %></td></tr>

@@ -8,12 +8,12 @@
   <% @messages.each do |message| %>
     <% if message.user_id == current_user.id %>
       <div class="row-12 d-flex now-wrap">
-       <div class="col-8"></div>
-       <p  class="col-4 rounded" style="background-color: #33FFCC; text-align: left;"><%= message.message %></p>
+       <div class="col-lg-8 col-xs-2"></div>
+       <p  class="col-lg-4 col-xs-10 rounded" style="background-color: #33FFCC; text-align: left;"><%= message.message %></p>
       </div>
     <% else %>
       <div class="d-flex wrap">
-      <%= image_tag attachment_url(message.user, :image, :fill, 100, 100, fallback: "no_image.jpeg"), size:'100x100', class:"rounded-circle" %>
+      <%= image_tag attachment_url(message.user, :image, :fill, 100, 100, fallback: "no_image.jpg"), size:'100x100', class:"rounded-circle" %>
       <p class="bg-light rounded" style="width:30vw; text-align: left;"><%= message.message %></p>
       </div>
     <% end %>
