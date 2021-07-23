@@ -50,7 +50,7 @@ class SearchsController < ApplicationController
 	private
 	def search_params
 	  @model = params[:model]
-		@content = params[:content]
-		@method = params[:method]
+	  @content = params[:content]
+	  @method = params[:method]
   end
 end

@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   root to: 'homs#top'
   get 'homs/about'
   get 'homs/mypage'
-  get '/search',     to: 'searchs#search'
+  # get '/search',     to: 'searchs#search'
   get 'searchs/searches'
   get 'search'       => 'shops#search'
-  get 'shops/search' => 'shops#search', as: 'search_shops'
+  # get 'shops/search' => 'shops#search', as: 'search_shops'
   get 'searchs/shop_search' => 'searchs#shop_search', as: 'search_search_shops'#並び替え実験
 
   resources :notifications,  only: [:index, :destroy]
@@ -25,15 +25,16 @@ Rails.application.routes.draw do
    resource :favorites,      only: [:create, :destroy]
    resource :bookmarks,      only: [:create, :destroy]
   end
-  resources :users,          only:[:show, :index, :create, :update, :edit, :destroy] do
+  resources :users   do
   member do
-  get 'withdrow_confirm'
+  get 'withdrow_confirm'git
   patch 'withdrow'
   end
    resource :relationships,  only: [:create, :destroy]
    get 'followings' => 'relationships#followings', as: 'followings'
    get 'followers'  => 'relationships#followers' , as: 'followers'
   end
+  get '/users/:id/search' => 'users#search', as: 'search_shops'
   resources :tags do
     get 'cooks', to: 'cooks#search'
   end

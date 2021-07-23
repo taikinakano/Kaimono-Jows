@@ -1,36 +1,22 @@
-    <h2 class='mt-5'>商品一覧</h2> <!--searches.htmlのパーシャル-->
-    <table class="table table-bordered text-center mt-5 searchrespons">
-      <thead class="thead-light">
-        <tr>
-         <th>商品画像</th>
-         <th>商品名</th>
-         <th>値段</th>
-         <th></th>
-        </tr>
-      </thead>
-        <% @records.each do |product| %>
-          <tbody class="bg-light">
-            <tr>
-              <td><%= image_tag attachment_url(product, :image, :fill, 100, 100, fallback: "no_image.jpg"), size:'100x100' %></td>
-              <td class="pt-4">
-                <%#= link_to shop_product_path(product) do %>
-                 <%= product.product_name %>
-                <%# end %>
-              </td>
-              <td class="pt-4"><%= product.price %></td>
-              <td class="pt-4">
-                <%#= link_to shop_product_path(product) do %>
-                 <div class="mb-2">
-                  <%= "店舗ページへ" %>
-                 </div>
-                <%# end %>
-              </td>
-            </tr>
-          </tbody>
-        <% end %>
-        </table>
-         <% if @records.count == 0 %>
-         <div>
-          <h4 class="d-flex align-items-center justify-content-center" style="height: 200px;">該当する商品はありません</h4>
-        </div>
-        <% end %>
+
+  <% if @records.exists? %>
+  <div class="d-flex flex-wrap" style="width: 100%;">
+   <% @records.each do |product| %>
+    <div class="mt-4 mr-3">
+    <div>
+     <%= image_tag attachment_url(product, :image, :fill, 100, 100, fallback: "no_image.jpg"), size:'100x100' %>
+    </div>
+    <div>
+    <%= link_to shop_product_path(@shop, product) do %>
+      <%= product.product_name %>
+    <% end %>
+    </div>
+    <div><%= product.price %>円</div>
+    </div>
+    <% end %>
+    </div>
+    <%= paginate @records %>
+  <% else %>
+    <div class="d-flex align-items-center justify-content-center" style="height:500px">
+      <h4> 該当の商品はありません</h4>
+  <% end %>

@@ -12,6 +12,7 @@
        <div>
         <% if user != current_user %>
         <%= render "users/info", user: user %>
+        <%= link_to "料理ページを見る", cooks_path, class:"btn-flat-cook" %>
         <% end %>
         <% if user == current_user %>
         <%= link_to "編集", edit_user_path(user), class: "fas fa-edit" %>
