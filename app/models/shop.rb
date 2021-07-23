@@ -26,7 +26,7 @@ class Shop < ApplicationRecord
   end
 
   def self.searched_for(content, method)
-      Shop.where('conversion_address LIKE ?', '%'+content+'%')
+      Shop.where('address LIKE ?', '%'+content+'%')
   end
 
   def self.sort(selection) #いいね順並び替え

@@ -1,0 +1,19 @@
+<% if @model == 'product' %>
+<div class="bglayout py-5">
+<div class="container-fluid"> <!--products/indexの検索機能-->
+  <div class="col-auto">
+    <h3>商品検索結果 "<%= @content %>"</h3>
+    <%= render "products/product_search" %>
+  </div>
+</div>
+</div>
+<% elsif @model == 'genre'%>
+<div class="bglayout py-5">
+<div class="container">
+  <div class="col-auto">
+    <h3>ジャンル検索結果 "<%= @content %>"</h3>
+    <%= render "products/product_search" %>
+  </div>
+</div>
+</div>
+<% end %>

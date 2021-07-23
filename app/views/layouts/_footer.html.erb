@@ -12,8 +12,9 @@
       <li><%= link_to "カレンダーを使う", event_path(current_user), class:"text-light ml-2" %></li>
       <li><%= link_to "店舗を見る", shops_path, class:"text-light ml-2" %></li>
       <li><%= link_to "会員を見る", users_path, class:"text-light ml-2" %></li>
-      <li><%= link_to "料理一覧", cooks_path, class:"text-light ml-2" %></li>
+      <li><%= link_to "料理一覧", user_cooks_path(current_user), class:"text-light ml-2" %></li>
       <li><%= link_to "メモを使う", user_path(current_user), class:"text-light ml-2" %></li>
+      <li><%= link_to "詳しく見る", homs_about_path, class:"text-light ml-2"%></li>
        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"text-light ml-2" %></li>
       <% else %>
       <li><%= link_to "詳しく見る", homs_about_path, class:"text-light ml-2"%></li>
