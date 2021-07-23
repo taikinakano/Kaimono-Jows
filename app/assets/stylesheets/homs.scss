@@ -188,6 +188,13 @@ body {
   width: 100%;
 }
 
+.cookimage {
+  background-image: image-url("cookimage.png");
+  background-size: cover;
+  height: 200px;
+  width: 100%;
+}
+
 @media screen and (max-width: 959px) {
 .appimage {
   margin: 0 auto;
