@@ -86,7 +86,6 @@ input[type="checkbox"] {
 @media screen and (max-width: 1000px) {
     main {
         width: 100%;
-        // padding-top: 50px;
     }
 //     /* 🍔 */
     .open,
@@ -125,9 +124,12 @@ input[type="checkbox"] {
     .btn-rpmove {          //ヘッダーボタンの移動
       position: absolute;
       top: -100vw;
+    }//ハンバーガーメニュー終わり
+
+    .FooterResponsive {
+      height: 400px;
     }
 }
- //ハンバーガーメニュー終わり
 
 .bglayout {
   background-image: image-url("moroccan-flower.png");//背景画像
