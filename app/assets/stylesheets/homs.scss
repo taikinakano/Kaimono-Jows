@@ -195,8 +195,41 @@ body {
   width: 100%;
 }
 
+.aboutresponsive {
+  height: 40%;
+}
+
+.abfeacherresponsive {
+  width: 40%;
+  height: 200px;
+}
+
 @media screen and (max-width: 959px) {
 .appimage {
   margin: 0 auto;
+}
+
+}
+
+@media screen and (max-width: 480px) {
+	/* 480px以下に適用されるCSS（スマホ用） */
+.aboutresponsive {
+  height: 60%;
+}
+
+.appimage {
+  width: 100%;
+}
+
+.productimage {
+  width: 100%;
+}
+
+.shopimage {
+  width: 100%;
+}
+
+.abfeacherresponsive {
+  width: 100%;
 }
 }
