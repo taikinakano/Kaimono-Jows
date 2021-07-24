@@ -1,28 +1,27 @@
 <div class="bglayout py-5">
 <div class="container">
-  <div class="mt-4 d-flex wrap">
-  <div>
+  <div class="mt-4 d-flex flex-wrap">
+  <div class="col-xs-12 col-md-6">
     <div>
     <%= render "cooks/user_cook_info", user: @user %>
     </div>
       <h4>料理登録</h4>
       <%= form_with model: [@user, @cook], local:true do |f| %>
       <table class="table table-borderless">
-       <tr><th>店舗画像</th><th><%= f.attachment_field :image, placeholder: "ファイルを選択" %></th></tr>
-       <tr><th>料理名</th><th><%= f.text_field :cook_name %></th></tr>
-       <tr><th>材料</th><td><%= f.text_area :cook_material, size: "30x5" %></td></tr>
-       <tr><th>作り方</th><td><%= f.text_area :cook_method, size: "30x5"  %></td></tr>
-       <tr><th></th><td><%= "スペースを入力することで複数のタグを付けることができます。" %></td></tr>
-       <tr><th></th><td><%= "例：音楽 文芸 スポーツ" %></td></tr>
-       <tr><th></th><td><%= f.text_field :tag_name %></td></tr>
-       <tr><td><%= f.submit "新規登録" %></td></tr>
+       <tr class="d-flex flex-wrap"><th>店舗画像</th><th><%= f.attachment_field :image, placeholder: "ファイルを選択" %></th></tr>
+       <tr class="d-flex flex-wrap"><th>料理名</th><th><%= f.text_field :cook_name %></th></tr>
+       <tr class="d-flex flex-wrap"><th>材料</th><td><%= f.text_area :cook_material, size: "30x5" %></td></tr>
+       <tr class="d-flex flex-wrap"><th>作り方</th><td><%= f.text_area :cook_method, size: "30x5"  %></td></tr>
+       <tr class="d-flex flex-wrap"><th></th><td><%= "スペースを入力することで複数のタグを付けることができます。" %></td></tr>
+       <tr class="d-flex flex-wrap"><th></th><td><%= "例：音楽 文芸 スポーツ" %></td></tr>
+       <tr class="d-flex flex-wrap"><th></th><td><%= f.text_field :tag_name %></td></tr>
+       <tr class="d-flex flex-wrap"><td><%= f.submit "新規登録" %></td></tr>
      </table>
      <% end %>
     </div>
-  <div class="w-50">
+  <div class="col-xs-12 col-md-6">
   <%= render "cooks/tag_lists", cook_tags: @cook_tags %><!--タグリスト-->
-  </span>
-    <h4>登録されている料理</h4>
+    <h4 class="mt-4">登録されている料理</h4>
     <div class="d-flex flex-wrap">
       <% @cooks.each do |cooks| %>
             <div class="mr-3">
