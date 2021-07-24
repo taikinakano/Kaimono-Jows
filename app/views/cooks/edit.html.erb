@@ -1,15 +1,30 @@
 <div class="bglayout py-5">
   <div class="container">
-  <h4>店舗編集</h4>
+  <h4 class="mb-5">店舗編集</h4>
   <%= form_with model: [@user, @cook], local:true do |f| %>
-  <table class="table table-borderless">
-    <tr><th>料理画像</th><td><%= f.attachment_field :image, placeholder: "ファイルを選択" %></td></tr>
-    <tr><th>料理名</th><td><%= f.text_field :cook_name %></td></tr>
-    <tr><th>材料</th><td><%= f.text_area :cook_material, size:"20x5" %></td></tr>
-    <tr><th>作り方</th><td><%= f.text_area :cook_method, size:"20x5" %></td></tr>
-    <tr><th>タグの編集</th><td><%= f.text_field :tag_name %></td></tr>
-    <tr><th></th><td><%= f.submit "更新", class:"btn-float-border-edit" %></td></tr>
-  </table>
+  <div class="form-group d-flex flex-wrap">
+    <%="料理画像　　" %><br />
+    <%= f.attachment_field :image, placeholder: "ファイルを選択";%>
+  </div>
+  <div class="d-flex flex-wrap my-3">
+    <%= f.label :cook_name, "料理名　　　　", class: "mr-3 " %><br />
+    <%= f.text_field :cook_name %>
+  </div>
+  <div class="d-flex flex-wrap">
+    <%= f.label :cook_material, "材料　　　　　", class: "mr-3 " %><br />
+    <%= f.text_area :cook_material, size:"20x5" %>
+  </div>
+  <div class="d-flex flex-wrap my-3">
+    <%= f.label :cook_method, "作り方　　　　", class: "mr-3 " %><br />
+    <%= f.text_area :cook_method, size:"20x5" %>
+  </div>
+  <div class="d-flex flex-wrap">
+    <%= f.label :tag_name, "タグの編集　　", class: "mr-3 " %><br />
+    <%= f.text_field :tag_name %>
+  </div>
+  <div class="form-group d-flex flex-wrap">
+    <%= f.submit "更新", class:"btn-float-border-edit" %>
+  </div>
   <% end %>
   </div>
 </div>

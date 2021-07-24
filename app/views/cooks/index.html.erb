@@ -5,18 +5,32 @@
     <div>
     <%= render "cooks/user_cook_info", user: @user %>
     </div>
-      <h4>料理登録</h4>
+      <h4 class="mb-5">料理登録</h4>
       <%= form_with model: [@user, @cook], local:true do |f| %>
-      <table class="table table-borderless">
-       <tr class="d-flex flex-wrap"><th>店舗画像</th><th><%= f.attachment_field :image, placeholder: "ファイルを選択" %></th></tr>
-       <tr class="d-flex flex-wrap"><th>料理名</th><th><%= f.text_field :cook_name %></th></tr>
-       <tr class="d-flex flex-wrap"><th>材料</th><td><%= f.text_area :cook_material, size: "30x5" %></td></tr>
-       <tr class="d-flex flex-wrap"><th>作り方</th><td><%= f.text_area :cook_method, size: "30x5"  %></td></tr>
-       <tr class="d-flex flex-wrap"><th></th><td><%= "スペースを入力することで複数のタグを付けることができます。" %></td></tr>
-       <tr class="d-flex flex-wrap"><th></th><td><%= "例：音楽 文芸 スポーツ" %></td></tr>
-       <tr class="d-flex flex-wrap"><th></th><td><%= f.text_field :tag_name %></td></tr>
-       <tr class="d-flex flex-wrap"><td><%= f.submit "新規登録" %></td></tr>
-     </table>
+        <div class="d-flex flex-wrap">
+          <%= "料理画像" %><br />
+          <%= f.attachment_field :image, placeholder: "ファイルを選択" %>
+        </div>
+        <div class="d-flex flex-wrap my-3">
+          <%= f.label :cook_name, "料理名　　　　", class: "mr-3 " %><br />
+          <%= f.text_area :cook_name %>
+        </div>
+        <div class="d-flex flex-wrap">
+          <%= f.label :cook_material, "材料　　　　　", class: "mr-3 " %><br />
+          <%= f.text_area :cook_material,size: "20x5" %>
+        </div>
+        <div class="d-flex flex-wrap my-3">
+          <%= f.label :cook_method, "作り方　　　　", class: "mr-3 " %><br />
+          <%= f.text_area :cook_method,size: "20x5" %>
+        </div>
+        <div class="d-flex flex-wrap" style="line-height:2.5rem">
+          <%= "スペースを入力することで複数のタグを付けることができます。" %><br />
+          <%= "例：音楽 文芸 スポーツ" %><br/>
+          <%= f.text_field :tag_name %>
+        </div>
+        <div class="form-group d-flex flex-wrap">
+          <%= f.submit "新規登録", class: "btn-float-border-edit"; %>
+        </div>
      <% end %>
     </div>
   <div class="col-xs-12 col-md-6">
