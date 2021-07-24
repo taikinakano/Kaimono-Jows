@@ -59,6 +59,7 @@ aside {
     height: 100%;
     transition: all 0.2s;
     background: #343a40;
+    z-index: 2;
 }
 .hambaga-item {         //ulのレイアウト
     list-style: none;
@@ -86,13 +87,15 @@ input[type="checkbox"] {
 @media screen and (max-width: 1000px) {
     main {
         width: 100%;
-        // padding-top: 50px;
     }
+   .navresponsive {
+     z-index: 2;
+   }
 //     /* 🍔 */
     .open,
     .close {
         display: block;
-        z-index: 2;
+        z-index: 3;
     }
 
     .close {
@@ -101,9 +104,8 @@ input[type="checkbox"] {
     }
     .open {
         position: absolute;
-        z-index: 1;
-        left: 90vw;
-        top: 30px;
+        left: 80vw;
+        top: 20px;
     }
 
     .fa-user-circle {
@@ -119,15 +121,19 @@ input[type="checkbox"] {
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.8);
+        z-index: 2;
     }
     /* 🍔 */
 
     .btn-rpmove {          //ヘッダーボタンの移動
       position: absolute;
       top: -100vw;
+    }//ハンバーガーメニュー終わり
+
+    .FooterResponsive {
+      height: 400px;
     }
 }
- //ハンバーガーメニュー終わり
 
 .bglayout {
   background-image: image-url("moroccan-flower.png");//背景画像

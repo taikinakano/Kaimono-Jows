@@ -14,9 +14,10 @@
       <li class="li-item"><%= link_to "会員を見る", users_path, class:"text-light fas fa-users" %></li>
       <li class="li-item"><%= link_to "料理一覧", user_cooks_path(current_user), class:"text-light fas fa-utensils" %></li>
       <li class="li-item"><%= link_to "メモを使う", user_path(current_user), class:"text-light fas fa-user-edit" %></li>
+      <li class="li-item"><%= link_to "詳しく見る", homs_about_path, class:"text-light fas fa-cog" %></li>
        <li class="li-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"text-light fas fa-sign-out-alt" %></li>
       <% else %>
-      <li class="li-item"><%= link_to "詳しく見る", homs_about_path, class:"text-light fas fa-toolboxl" %></li>
+      <li class="li-item"><%= link_to "詳しく見る", homs_about_path, class:"text-light fas fa-cog" %></li>
       <li class="li-item"><%= link_to "新規登録",  new_user_registration_path, class:"text-light fas fa-user-plus" %></li>
       <li class="li-item"><%= link_to "ログイン", new_user_session_path, class:"text-light fas fa-sign-in-alt" %></li>
       <% end %>
