@@ -5,4 +5,6 @@ class Genre < ApplicationRecord
       Genre.where('name LIKE ?', '%'+content+'%')
   end
 
+  validates :name,          presence: true, length: { minimum: 1, maximum: 20 }
+
 end

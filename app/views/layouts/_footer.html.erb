@@ -11,8 +11,8 @@
       <li class="li-item" style="font-size:30px;"><%= link_to "", homs_about_path, class:"text-light fas fa-cog mr-3" %></li>
        <li class="li-item" style="font-size:30px;"><%= link_to "", destroy_user_session_path, method: :delete, class:"text-light fas fa-sign-out-alt mr-3" %></li>
       <% else %>
-      <li class="li-item"><%= link_to "詳しく見る", homs_about_path, class:"text-light fas fa-toolboxl" %></li>
-      <li class="li-item"><%= link_to "新規登録",  new_user_registration_path, class:"text-light fas fa-user-plus" %></li>
+      <li class="li-item"><%= link_to "", homs_about_path, class:"text-light fas fa-toolboxl" %></li>
+      <li class="li-item"><%= link_to "",  new_user_registration_path, class:"text-light fas fa-user-plus" %></li>
       <li class="li-item"><%= link_to "ログイン", new_user_session_path, class:"text-light fas fa-sign-in-alt" %></li>
       <% end %>
     </ul>
