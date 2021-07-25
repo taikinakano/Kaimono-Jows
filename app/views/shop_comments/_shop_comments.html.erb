@@ -6,7 +6,9 @@
 </div>
 <% shop.shop_comments.each do |shop_comment| %>
 <div class="comments d-flex wrap mt-3">
-  <div><%= image_tag attachment_url(shop_comment.user, :image, fallback: "no_image.jpeg"), size:'70x70', class: "rounded-circle mr-3" %></div>
+  <div>
+    <%= image_tag attachment_url(shop_comment.user, :image, fallback: "no_image.jpeg"), size:'70x70', class: "rounded-circle mr-3" %>
+  </div>
   <div>
     <dl style="line-height:2rem">
       <dt><%= shop_comment.user.name %></dt>
