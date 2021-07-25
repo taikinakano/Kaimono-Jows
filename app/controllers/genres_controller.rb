@@ -10,6 +10,7 @@ class GenresController < ApplicationController
     if @genre.save
       redirect_to new_shop_genre_path, notice: "ジャンルを登録しました。"
     else
+      flash.now[:alert] = 'ジャンルの登録に失敗しました'#ユーザー以外を弾く
       @genres = Genre.all
       render "new"
     end
@@ -33,7 +34,6 @@ class GenresController < ApplicationController
   end
 
   def destroy
-    # @shop = Shop.find(params[:shop_id])
     @genre = @shop.genres.find(params[:id])
     @genre.destroy
     redirect_to new_shop_genre_path

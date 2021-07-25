@@ -35,6 +35,8 @@ class ProductsController < ApplicationController
       redirect_to shop_products_path(@shop),notice: '商品が登録されました'
       else
         flash.now[:alert] = '商品の登録に失敗しました'
+        @shop = Shop.find(params[:shop_id])
+        @products = @shop.products.page(params[:page]).per(20).reverse_order
         render "index"
       end
     end
