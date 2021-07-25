@@ -17,7 +17,7 @@
   <% @cooks.each do |cook| %>
     <div class="mr-3">
       <div class="my-3">
-        <%= image_tag attachment_url(cook, :image, :fill, 100, 100, fallback: "no_image.jpg"), size: '100x100' %>
+        <%= image_tag attachment_url(cook, :image, fallback: "no_image.jpg"), size: '100x100' %>
       </div>
       <div>
         <%= link_to cook.cook_name, user_cook_path(@user, cook) %>

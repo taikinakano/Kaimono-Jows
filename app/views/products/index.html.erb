@@ -16,13 +16,13 @@
   <% if @products.exists? %>
   <div class="d-flex flex-wrap" style="width: 100%;">
    <% @products.each do |products| %>
-    <div class="mt-4 mr-3" style="width:10%;">
+    <div class="mt-4 mr-3 col-xs-6 col-md- 3">
     <div>
      <%= image_tag attachment_url(products, :image, fallback: "no_image.jpg"), size: '100x100' %>
     </div>
-    <div>
+    <div class="text-wrap" style="width: 6rem;">
       <%= link_to shop_product_path(@shop, products) do %>
-      <span class: "text-wrap"><%= products.product_name %></span>
+      <%= products.product_name %>
       <% end %>
     </div>
     <div><%= products.price %>円</div>

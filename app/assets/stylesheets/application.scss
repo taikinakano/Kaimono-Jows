@@ -72,8 +72,6 @@ aside {
   padding-bottom: 10px;
 }
 
-
-// /* 🍔 */
 .open,
 .close {
     display: none;
@@ -82,16 +80,33 @@ input[type="checkbox"] {
     position: absolute;
     left: -50vw;
 }
-// /* 🍔 */
 
+/*ページネーション自体のデザイン*/
+.pagination>div>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>div>a:hover {
+  border-radius: 15px;    /*角を丸くする*/
+}
+/*ページネーション自体のデザイン　終わり*/
 @media screen and (max-width: 1000px) {
+/*ハンバーガーメニューデザイン*/
     main {
         width: 100%;
     }
    .navresponsive {
      z-index: 2;
    }
-//     /* 🍔 */
+   
     .open,
     .close {
         display: block;
@@ -123,12 +138,13 @@ input[type="checkbox"] {
         background: rgba(0, 0, 0, 0.8);
         z-index: 2;
     }
-    /* 🍔 */
+  
 
     .btn-rpmove {          //ヘッダーボタンの移動
       position: absolute;
       top: -100vw;
-    }//ハンバーガーメニュー終わり
+    }
+//ハンバーガーメニュー終わり
 
     .FooterResponsive {
       height: 400px;
