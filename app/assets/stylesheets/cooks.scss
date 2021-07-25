@@ -17,6 +17,21 @@
   color: white;
 }                  //更新ボタン終わり
 
+.btn-float-border-user { //ユーザーへ
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: 	#000080;
+  border: solid 2px #000080;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.btn-float-border-user:hover {
+  background: #000080;
+  color: white;
+}                  //ユーザーへ
+
 
 @media screen and (max-width: 559px) {
 .methodresponsive {
