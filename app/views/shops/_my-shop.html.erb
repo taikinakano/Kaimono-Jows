@@ -14,7 +14,7 @@
        <tr>
          <td>
          <%= link_to shop_path(shop.id) do %>
-         <%= attachment_image_tag shop, :image, size: '200x150', formate: 'jpg', fallback: "no_iamge.jpg" %>
+         <%= attachment_image_tag shop, :image, size: '200x150', format: 'jpg', fallback: "no_iamge.jpg" %>
          <% end %>
          </td>
          <td>
@@ -23,6 +23,7 @@
            <% end %>
           </td>
          <td><%= shop.address %></td>
+         <td><%= link_to "", shop_path(shop), class: "fas fa-store-alt" %></td>
          <% if @user == current_user %>
          <td><%= link_to "", edit_shop_path(shop.id), class: "fas fa-edit" %></td>
          <td><%= link_to "", shop_path(shop.id), method: :delete, class: "fas fa-trash-alt" %></td>

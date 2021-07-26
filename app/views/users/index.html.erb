@@ -16,7 +16,7 @@
        <tr>
         <td>
         <%= link_to user_path(users.id) do %>
-        <%= image_tag attachment_url(users, :image, :fill, 50, 50, fallback: "no_image.jpg"), size:'50x50' %>
+        <%= image_tag attachment_url(users, :image, fallback: "no_image.jpg"), size:'50x50' %>
         <% end %>
         </td>
         <td>

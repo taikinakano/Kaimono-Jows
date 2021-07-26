@@ -16,8 +16,12 @@
   color: white;
 }                  //DM機能ボタン
 
-@media screen and (max-width: 959px) {
-  .messagerespons {
-    width: 90vw;
+  .yourmessage {
+    background-color: #33FFCC;
+    text-align: left;
   }
-}
+
+  .mymessage{
+    width: 30vw;
+    text-align: left;
+  }

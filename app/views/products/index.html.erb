@@ -1,6 +1,10 @@
 <div class="bglayout py-5">
 <div class="container">
-<h4 class="my-4">店舗名：<%= @shop.shop_name %></h4>
+<h4 class="my-4">店舗名：
+<%#= link_to "", shop_path(@shop) do %>
+  <%= link_to @shop.shop_name, shop_path(@shop) %>
+<%# end %>
+</h4>
   <div>商品一覧</div>
   <% if @shop.user == current_user %>
   <%= link_to '新規投稿', new_shop_product_path(@shop), class: "fas fa-plus mr-2" %>
@@ -16,11 +20,11 @@
   <% if @products.exists? %>
   <div class="d-flex flex-wrap" style="width: 100%;">
    <% @products.each do |products| %>
-    <div class="mt-4 mr-3">
+    <div class="mt-4 mr-3 col-xs-6 col-md- 3">
     <div>
-     <%= image_tag attachment_url(products, :image, :fill, 100, 100, fallback: "no_image.jpg"), size:'100x100' %>
+     <%= image_tag attachment_url(products, :image, fallback: "no_image.jpg"), size: '100x100' %>
     </div>
-    <div>
+    <div class="text-wrap" style="width: 6rem;">
       <%= link_to shop_product_path(@shop, products) do %>
       <%= products.product_name %>
       <% end %>
