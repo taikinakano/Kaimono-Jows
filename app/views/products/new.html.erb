@@ -1,15 +1,30 @@
 <div class="bglayout py-5">
 <div class="container pt-5">
-<h4>商品新規登録</h4>
+<h4 class="mb-5">商品新規登録</h4>
 <%= form_with model: [@shop, @product], local:true do |f| %>
-<table class="table table-borderless">
-  <tr><th>商品画像</th><td><%= f.attachment_field :image, placeholder: "ファイルを選択" %></td></tr>
-  <tr><th>商品名</th><td><%= f.text_field :product_name %></td></tr>
-  <tr><th>商品メモ</th><td><%= f.text_area :product_memo, size:"20x5" %></td></tr>
-  <tr><th>ジャンル</th><td><%= f.collection_select :genre_id, @shop.genres.all, :id, :name, { include_blank: "--選択してください--　" } %></td></tr>
-  <tr><th>税抜き価格</th><td><%= f.text_field :price %></td></tr>
-  <tr><th></th><td><%= f.submit "新規登録", class: "btn-float-border-new mt-3" %></td></tr>
-</table>
+  <div class="form-group d-flex flex-wrap">
+    <%= "商品画像" %><br />
+    <%= f.attachment_field :image, placeholder: "ファイルを選択", class:"ml-4" %>
+  </div>
+  <div class="form-group d-flex flex-wrap">
+    <%= f.label :product_name, "商品名　　　　", class: "mr-4" %><br />
+    <%= f.text_field :product_name %>
+  </div>
+  <div class="form-group d-flex flex-wrap">
+    <%= f.label :product_memo, "商品メモ　　　", class: "mr-4" %><br />
+    <%= f.text_area :product_memo,size: "20x5" %>
+  </div>
+  <div class="form-group d-flex flex-wrap">
+    <%= f.label :genre_id, "ジャンル　　　", class: "mr-4" %><br />
+    <%= f.collection_select :genre_id, @shop.genres.all, :id, :name, { include_blank: "--選択してください--　" } %>
+  </div>
+  <div class="form-group d-flex flex-wrap">
+    <%= f.label :price, "値段　　　　　", class: "mr-4" %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="form-group d-flex flex-wrap">
+    <%= f.submit "新規登録", class: "btn-float-border-new mt-3" %>
+  </div>
 <% end %>
 </div>
 </div>

@@ -3,9 +3,9 @@
     <div class="mx-auto mt-4">
     <h4>商品詳細</h4>
     　<div class="d-flex flex-wrap">
-       　<div class="d-flex wrap">
+       　<div class="d-flex flex-wrap">
            <div>
-            <%= image_tag attachment_url(@product, :image, :fill, 200, 200, fallback: "no_image.jpg"), size:'200x200' %>
+            <%= image_tag attachment_url(@product, :image, fallback: "no_image.jpg"), size:'200x200' %>
            </div>
              <div class="ml-3">
                 <table class="table table-borderless">
@@ -30,8 +30,8 @@
        　</div>
       　<div class="ml-5 pt-0 w-25 productrespons">
       　<h5 class="fas fa-user-edit">商品メモ</h5>
-        　<div class="mt-4 bg-light">
-         　<%= @product.product_memo %>
+        　<div class="mt-4">
+         　<%= render "products/ModalProduct" %>
           </div>
       　</div>
     　</div>

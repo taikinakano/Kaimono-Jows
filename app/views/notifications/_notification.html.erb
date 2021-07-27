@@ -3,7 +3,7 @@
 <div class="my-5 border-bottom border-dark">
     <span>
       <%= link_to user_path(visitor) do %>
-        <%= image_tag attachment_url(visitor, :image, :fill, 50, 50, fallback: "no_image.jpg"), size:'50x50', class:"rounded-circle" %>
+        <%= image_tag attachment_url(visitor, :image, fallback: "no_image.jpg"), size:'50x50', class:"rounded-circle" %>
       <% end %>
         <strong>
           <%= visitor.name %>
@@ -30,7 +30,7 @@
         <% if notification.shop.user_id == visited.id %>
           <span>
             <%= link_to shop_path(notification.shop) do %>
-              <%= image_tag attachment_url(notification.shop.user, :image, :fill, 50, 50, fallback: "no_image.jpg"), size:'50x50', class:"rounded-circle" %>
+              <%= image_tag attachment_url(notification.shop.user, :image, fallback: "no_image.jpg"), size:'50x50', class:"rounded-circle" %>
               <strong>
                 <%= notification.shop.user.name + 'さんの投稿' %>
               </strong>

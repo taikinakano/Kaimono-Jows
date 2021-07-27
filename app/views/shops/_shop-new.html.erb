@@ -1,12 +1,24 @@
     <div clas>
-      <h4>店舗登録</h4>
+      <h4 class="mb-5">店舗登録</h4>
       <%= form_with model: shop, local:true do |f| %>
-      <table class="table table-borderless">
-       <tr><th>店舗画像</th><th><%= f.attachment_field :image, placeholder: "ファイルを選択" %></th></tr>
-       <tr><th>店舗名</th><th><%= f.text_field :shop_name %></th></tr>
-       <tr><td>住所</td><td><%=f.text_field :address %></td></tr>
-       <tr><td>店舗コメント</td><td><%= f.text_area :comment, size: "20x5" %></td></tr>
-       <tr><td><%= f.submit "新規登録", class:"btn-float-border-new"  %></td></tr>
-     </table>
+        <div class="form-group d-flex flex-wrap">
+          <%= "店舗画像　　" %><br />
+          <%= f.attachment_field :image, placeholder: "ファイルを選択" %>
+        </div>
+        <div class="form-group d-flex flex-wrap">
+          <%= f.label :shop_name, "店舗名　　　", class: "mr-3 " %><br />
+          <%= f.text_area :shop_name %>
+        </div>
+        <div class="form-group d-flex flex-wrap">
+          <%= f.label :address, "住所　　　　", class: "mr-3 " %><br />
+          <%= f.text_area :address %>
+        </div>
+        <div class="form-group d-flex flex-wrap">
+          <%= f.label :comment, "店舗コメント", class: "mr-3 " %><br />
+          <%= f.text_area :comment,size: "20x5" %>
+        </div>
+        <div class="form-group d-flex flex-wrap">
+          <%= f.submit "新規登録", class:"btn-float-border-new"  %>
+        </div>
      <% end %>
     </div>

@@ -11,9 +11,9 @@
       <li class="li-item" style="font-size:30px;"><%= link_to "", homs_about_path, class:"text-light fas fa-cog mr-3" %></li>
        <li class="li-item" style="font-size:30px;"><%= link_to "", destroy_user_session_path, method: :delete, class:"text-light fas fa-sign-out-alt mr-3" %></li>
       <% else %>
-      <li class="li-item"><%= link_to "", homs_about_path, class:"text-light fas fa-toolboxl" %></li>
-      <li class="li-item"><%= link_to "",  new_user_registration_path, class:"text-light fas fa-user-plus" %></li>
-      <li class="li-item"><%= link_to "ログイン", new_user_session_path, class:"text-light fas fa-sign-in-alt" %></li>
+      <li class="li-item"><%= link_to "", homs_about_path, class:"text-light fas fa-cog mr-3" %></li>
+      <li class="li-item"><%= link_to "",  new_user_registration_path, class:"text-light fas fa-user-plus mr-3" %></li>
+      <li class="li-item"><%= link_to "", new_user_session_path, class:"text-light fas fa-sign-in-alt mr-3" %></li>
       <% end %>
     </ul>
     <a href="#" class="btn-social-circle btn-social-circle--twitter">
@@ -31,7 +31,7 @@
     </div>
   <div class="col-md-5 col-sm-12">
     <div class="text-center ml-2">
-    <div class="image-jaws mx-auto"></div>
+    <div class="image mx-auto"></div>
       <h4 class="text-rogo text-light">KAIMONO JAWS</h4>
       <p class="text-sbrogo text-light">EASY TO USE NOTEPAD</p>
     </div>
