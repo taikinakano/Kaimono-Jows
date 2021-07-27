@@ -1,9 +1,7 @@
 <div class="bglayout py-5">
 <div class="container">
 <h4 class="my-4">店舗名：
-<%#= link_to "", shop_path(@shop) do %>
   <%= link_to @shop.shop_name, shop_path(@shop) %>
-<%# end %>
 </h4>
   <div>商品一覧</div>
   <% if @shop.user == current_user %>

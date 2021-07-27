@@ -11,18 +11,24 @@
 // about supported directives.
 //
 
+//= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-//= require jquery
+//= require jquery-ui/widgets/sortable
+//= require jquery-ui/effects/effect-highlight
 //= require moment
 //= require fullcalendar
 //= require bootstrap-sprockets
 
+
+
 const sentence = document.querySelector('.sentence') //ヘッダーのボタン
 const h1 = document.querySelector('h1')
 const h2 = document.querySelector('h2')
+
+
 
 
 

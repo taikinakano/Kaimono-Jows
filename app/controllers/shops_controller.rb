@@ -1,7 +1,7 @@
 class ShopsController < ApplicationController
 
   def index
-    @shops = Shop.page(params[:page]).reverse_order
+    @shops = Shop.page(params[:page]).rank(:row_order)
   end
 
   def show
@@ -55,8 +55,15 @@ class ShopsController < ApplicationController
       @shops = Shop.sort(selection)
    end
 
+  def sort
+    shop = Shop.find(params[:shop_id])
+    shop.update(shop_params)
+    binding.pry
+    render body: nil
+  end
+
   private
   def shop_params
-    params.require(:shop).permit(:shop_name, :image, :address, :comment, :user_id)
+    params.require(:shop).permit(:shop_name, :image, :address, :comment, :user_id, :row_order_position)
   end
 end

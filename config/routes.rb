@@ -13,13 +13,13 @@ Rails.application.routes.draw do
   resources :notifications,  only: [:index, :destroy]
   delete    'notifications'                 => 'notifications#all_destroy', as: 'all_destroy'
   resources :messages,       only: [:show, :create]
-  # resources :cooks,          only:[:index, :show, :create, :edit, :update, :destroy]
   get '/tags'   => 'cooks#tags', as: 'cooks_tag'  #タグの一覧画面
   resources :tags,           only:[:destroy] do  #タグによって絞り込んだ投稿を表示するアクションへのルーティング
     get 'cooks', to: 'cooks#search'
   end
   resources :events,         only:[:show, :create, :destroy, :edit, :update]
   resources :shops,          only:[:index, :show, :create, :edit, :update, :destroy, :search] do
+   put :sort
    resources :products
    get '/product_search' => 'products#product_search', as: 'product_search'#商品検索
    resources :genres,        only:[:new, :edit, :create, :update, :destroy ]
@@ -38,6 +38,7 @@ Rails.application.routes.draw do
    resources :cooks,          only:[:index, :show, :create, :edit, :update, :destroy]
   end
   get '/users/:id/search' => 'users#search', as: 'search_shops' #users/showの検索機能
+  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -4,8 +4,7 @@ class UsersController < ApplicationController
   def show
     @shop = Shop.new
     @user = User.find(params[:id])
-    @shops = @user.shops.page(params[:page]).reverse_order
-
+    @shops = @user.shops.page(params[:page]).rank(:row_order)
   end
 
   def create

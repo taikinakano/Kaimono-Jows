@@ -22,21 +22,23 @@
       <th>住所</th>
       </tr>
      </thead>
-     <tbody class="bg-light">
-       <% @shops.each do |shops| %>
+     <tbody class="bg-light table-sortable">
+       <% @shops.each do |shop| %>
        <tr>
+        <%= content_tag "tr", class: "item", data: { model_name: shop.class.name.underscore, update_url: shop_sort_path(shop)} do %>
          <td>
-         <%= link_to shop_path(shops.id) do %>
-         <%= attachment_image_tag shops, :image, size: '200x150', formate: 'jpg', fallback: "no_iamge.jpg" %>
+         <%= link_to shop_path(shop.id) do %>
+         <%= attachment_image_tag shop, :image, size: '200x150', formate: 'jpg', fallback: "no_iamge.jpg" %>
          <% end %>
          </td>
          <td class="pt-4">
-           <%= link_to shop_path(shops.id) do %>
-           <%= shops.shop_name %>
+           <%= link_to shop_path(shop.id) do %>
+           <%= shop.shop_name %>
            <% end %>
           </td>
-          <td class="pt-4"><%= shops.address %></td>
+          <td class="pt-4"><%= shop.address %></td>
        </tr>
+       <% end %>
        <% end %>
        <%= paginate @shops %>
      </tbody>
@@ -44,3 +46,4 @@
     </div>
     </div>
     </div>
+

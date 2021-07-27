@@ -72,9 +72,9 @@ gem 'miyabi'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'dotenv-rails'
+gem 'ranked-model'
+gem 'jquery-ui-rails'
 group :production do
   gem 'mysql2'
-gem 'ranked-model'
-
 
 end

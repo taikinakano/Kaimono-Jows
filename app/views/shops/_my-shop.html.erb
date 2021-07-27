@@ -1,5 +1,5 @@
     <h4 class="my-3">登録されている店舗</h4>
-     <table class="table">
+     <table class="table table-sortable">
       <thead class="thead-dark">
       <tr>
       <th>店舗画像</th>
@@ -11,7 +11,7 @@
      </thead>
      <tbody class="bg-light">
        <% shops.each do |shop| %>
-       <tr>
+       <tr class="item(data = { model_name: shop.class.name.underscore, update_url: shop_sort_path(shop) })">
          <td>
          <%= link_to shop_path(shop.id) do %>
          <%= attachment_image_tag shop, :image, size: '200x150', format: 'jpg', fallback: "no_iamge.jpg" %>
@@ -33,3 +33,4 @@
        <%= paginate shops %>
      </tbody>
     </table>
+
