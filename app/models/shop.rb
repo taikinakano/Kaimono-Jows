@@ -1,6 +1,5 @@
 class Shop < ApplicationRecord
-  include RankedModel #ドラックアンドドロップ
-  ranks :row_order, with_same: :user_id
+
 
 
   belongs_to :user

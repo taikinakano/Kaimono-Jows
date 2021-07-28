@@ -82,11 +82,12 @@
 .loginbody {
   margin: 0;
   padding: 0;
-  background: #fff;
-  color: #fff;
+  background-image: image-url("bgworter.png");
+  background-size: cover;
   font-family: Arial;
   font-size: 12px;
 }
+
 
 .body{
   position: absolute;
@@ -119,6 +120,17 @@
   position: absolute;
   top: 30%;
   left: 47%;
+  z-index: 3;
+}
+
+.DeviseError {
+  position: relative;
+  top: -150px;
+  left: 35%;
+  border: solid red 3px;
+  color: red;
+  width: 45%;;
+  padding-left: 50px;
   z-index: 3;
 }
 
@@ -204,6 +216,13 @@
 
 .login {
   left: 15%;
+}
+
+.DeviseError{
+  left: 10px;
+  width: 90%;
+  margin-top: 700px;
+  margin-bottom: 0px;
 }
 }
 
