@@ -29,6 +29,7 @@
 
   .alert {
     background-color: #FF9933;
+    z-index: 4;
   }
 } 　　　　　　　//フラッシュメッセージ終わり
 
@@ -106,7 +107,7 @@ input[type="checkbox"] {
    .navresponsive {
      z-index: 2;
    }
-   
+
     .open,
     .close {
         display: block;
@@ -138,7 +139,7 @@ input[type="checkbox"] {
         background: rgba(0, 0, 0, 0.8);
         z-index: 2;
     }
-  
+
 
     .btn-rpmove {          //ヘッダーボタンの移動
       position: absolute;

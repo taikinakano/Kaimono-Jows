@@ -77,145 +77,154 @@
 }                  //料理ページへのボタン終わり
 
 
-// //ログインページ
+//ログインページ
 
-// .loginbody {
-//   margin: 0;
-//   padding: 0;
-//   background: #fff;
-//   color: #fff;
-//   font-family: Arial;
-//   font-size: 12px;
-// }
+.loginbody {
+  margin: 0;
+  padding: 0;
+  background-image: image-url("bgworter.png");
+  background-size: cover;
+  font-family: Arial;
+  font-size: 12px;
+}
 
-// .body{
-//   position: absolute;
-//   top: -20px;
-//   left: -20px;
-//   right: -40px;
-//   bottom: -40px;
-//   width: auto;
-//   height: auto;
-//   background-image: url("http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg");
-//   background-size: cover;
-//   filter: blur(5px);
-//   z-index: 1;
-// }
 
-// .grad{
-//   position: absolute;
-//   top: -20px;
-//   left: -20px;
-//   right: -40px;
-//   bottom: -40px;
-//   width: auto;
-//   height: auto;
-//   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
-//   z-index: 2;
-//   opacity: 0.7;
-// }
+.body{
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -40px;
+  bottom: -40px;
+  width: auto;
+  height: auto;
+  background-image: image-url("bgworter.png");
+  background-size: cover;
+  filter: blur(5px);
+  z-index: 1;
+}
 
-// .header{
-//   position: absolute;
-//   top: calc(50% - 35px);
-//   left: calc(50% - 255px);
-//   z-index: 3;
-// }
+.grad{
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -40px;
+  bottom: -40px;
+  width: auto;
+  height: auto;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+  z-index: 2;
+  opacity: 0.7;
+}
 
-// .header div{
-//   float: left;
-//   color: #fff;
-//   font-family: 'Exo', sans-serif;
-//   font-size: 35px;
-//   font-weight: 200;
-// }
+.header{
+  position: absolute;
+  top: 30%;
+  left: 47%;
+  z-index: 3;
+}
 
-// .header div span{
-//   color: #5379fa !important;
-// }
+.DeviseError {
+  position: relative;
+  top: -150px;
+  left: 35%;
+  border: solid red 3px;
+  color: red;
+  width: 45%;;
+  padding-left: 50px;
+  z-index: 3;
+}
 
-// .login{
-//   position: absolute;
-//   top: calc(50% - 75px);
-//   left: calc(50% - 50px);
-//   height: 150px;
-//   width: 350px;
-//   padding: 10px;
-//   z-index: 3;
-// }
+.header div{
+  float: left;
+  color: #fff;
+  font-family: 'Exo', sans-serif;
+  font-size: 35px;
+  font-weight: 200;
+}
 
-// .login input[type=text]{
-//   width: 250px;
-//   height: 30px;
-//   background: transparent;
-//   border: 1px solid rgba(255,255,255,0.6);
-//   border-radius: 2px;
-//   color: #fff;
-//   font-family: 'Exo', sans-serif;
-//   font-size: 16px;
-//   font-weight: 400;
-//   padding: 4px;
-// }
 
-// .login input[type=password]{
-//   width: 250px;
-//   height: 30px;
-//   background: transparent;
-//   border: 1px solid rgba(255,255,255,0.6);
-//   border-radius: 2px;
-//   color: #fff;
-//   font-family: 'Exo', sans-serif;
-//   font-size: 16px;
-//   font-weight: 400;
-//   padding: 4px;
-//   margin-top: 10px;
-// }
+.login{
+  position: absolute;
+  top: calc(50% - 75px);
+  left: calc(50% - 100px);
+  height: 150px;
+  width: 350px;
+  padding: 10px;
+  z-index: 3;
+}
 
-// .login input[type=button]{
-//   width: 260px;
-//   height: 35px;
-//   background: #fff;
-//   border: 1px solid #fff;
-//   cursor: pointer;
-//   border-radius: 2px;
-//   color: #a18d6c;
-//   font-family: 'Exo', sans-serif;
-//   font-size: 16px;
-//   font-weight: 400;
-//   padding: 6px;
-//   margin-top: 10px;
-// }
+.field{
+  width: 250px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: 2px;
+  color: #fff;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 4px;
+  margin-bottom: 8px;
+}
 
-// .login input[type=button]:hover{
-//   opacity: 0.8;
-// }
+.submit{
+  width: 260px;
+  height: 35px;
+  background: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+  border-radius: 2px;
+  color: #a18d6c;
+  font-family: 'Exo', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 6px;
+  margin-top: 10px;
+}
 
-// .login input[type=button]:active{
-//   opacity: 0.6;
-// }
+.submit:hover{
+  opacity: 0.8;
+}
 
-// .login input[type=text]:focus{
-//   outline: none;
-//   border: 1px solid rgba(255,255,255,0.9);
-// }
+.submit:active{
+  opacity: 0.6;
+}
 
-// .login input[type=password]:focus{
-//   outline: none;
-//   border: 1px solid rgba(255,255,255,0.9);
-// }
+.field:focus{
+  outline: none;
+  border: 1px solid rgba(255,255,255,0.9);
+}
 
-// .login input[type=button]:focus{
-//   outline: none;
-// }
 
-// ::-webkit-input-placeholder{
-//   color: rgba(255,255,255,0.6);
-// }
+::placeholder{
+  color: rgba(255,255,255,0.6);
+}
 
-// ::-moz-input-placeholder{
-//   color: rgba(255,255,255,0.6);
-// }
+.DeviseTop {
+  color: #fff;
+}
 
+.DeviseTop:hover {
+  color: red;
+}
+
+@media screen and (max-width: 400px) {
+  //ログインページ
+.header {
+  left: 35%;
+}
+
+.login {
+  left: 15%;
+}
+
+.DeviseError{
+  left: 10px;
+  width: 90%;
+  margin-top: 700px;
+  margin-bottom: 0px;
+}
+}
 
 
 
