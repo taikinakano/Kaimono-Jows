@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
   resources :events,         only:[:show, :create, :destroy, :edit, :update]
   resources :shops,          only:[:index, :show, :create, :edit, :update, :destroy, :search] do
-   put :sort
+   post :sort
    resources :products
    get '/product_search' => 'products#product_search', as: 'product_search'#商品検索
    resources :genres,        only:[:new, :edit, :create, :update, :destroy ]

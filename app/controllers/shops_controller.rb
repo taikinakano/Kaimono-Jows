@@ -1,7 +1,7 @@
 class ShopsController < ApplicationController
 
   def index
-    @shops = Shop.page(params[:page]).rank(:row_order)
+    @shops = Shop.rank(:row_order)
   end
 
   def show
@@ -56,9 +56,8 @@ class ShopsController < ApplicationController
    end
 
   def sort
-    shop = Shop.find(params[:shop_id])
+    shop = Shop.find_by(params[:shop_id])
     shop.update(shop_params)
-    binding.pry
     render body: nil
   end
 
@@ -66,4 +65,5 @@ class ShopsController < ApplicationController
   def shop_params
     params.require(:shop).permit(:shop_name, :image, :address, :comment, :user_id, :row_order_position)
   end
+
 end
