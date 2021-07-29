@@ -47,13 +47,13 @@
     </div>
     <br>
     <div class="login">
-     <%= f.text_field :name, placeholder: "name", autofocus: true, autocomplete: "name", class: "field" %>
-     <%= f.email_field :email, placeholder: "email", autofocus: true, autocomplete: "email", class: "field"  %>
+     <%= f.text_field :name, placeholder: "name", autofocus: true, autocomplete: "name", class: "devisefield" %>
+     <%= f.email_field :email, placeholder: "email", autofocus: true, autocomplete: "email", class: "devisefield"  %>
      <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
-     <%= f.password_field :password, placeholder: "password", autocomplete: "new-password", class: "field" %>
-     <%= f.password_field :password_confirmation, placeholder: "password", autocomplete: "new-password", class: "field" %>
+     <%= f.password_field :password, placeholder: "password", autocomplete: "new-password", class: "devisefield" %>
+     <%= f.password_field :password_confirmation, placeholder: "password", autocomplete: "new-password", class: "devisefield" %>
      <%= f.submit "Sign Up", class: "submit mb-3" %>
      <h5><%= link_to "TOP", root_path, class: "DeviseTop" %></h5>
      <div><h5><%= render "devise/shared/links", class: "DeviseTop" %></h5></div>
