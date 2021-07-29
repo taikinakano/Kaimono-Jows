@@ -17,8 +17,21 @@
   color: white;
 }                  //新規登録ボタン終わり
 
+.productrespons {
+   width: 25%;
+}
+
+.ProductShowre {
+  height: 500px;
+}
+
 @media screen and (max-width: 959px) {
 .productrespons {
+  width: 100%;
   margin-top: 50px;
+}
+
+.ProductShowre {
+  height: 800px;
 }
 }
