@@ -73,7 +73,7 @@ class CooksController < ApplicationController
     @user = User.find(current_user.id)
     @cook_tags = @user.cooks.map(&:tags).flatten.uniq               #こっちの投稿一覧表示ページでも全てのタグを表示するために、タグを全取得
     @tag = Tag.find(params[:tag_id])                                #クリックしたタグを取得
-    @cooks = @tag.cooks.page(params[:page]).reverse_order           #クリックしたタグに紐付けられた投稿を全て表示
+    @cooks = @tag.cooks.where(user_id: current_user.id).page(params[:page]).reverse_order           #クリックしたタグに紐付けられた投稿を全て表示
   end
 
   def tags
