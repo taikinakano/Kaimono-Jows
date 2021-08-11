@@ -45,9 +45,11 @@ class ShopsController < ApplicationController
 
   def destroy
     @shop = Shop.find(params[:id])
-    @shop.destroy
-    @user = User.find(current_user.id)
-    redirect_to user_path(@user)
+    if @shop.user_id = current_user.id
+      @shop.destroy
+      @user = User.find(current_user.id)
+      redirect_to user_path(@user)
+    end
   end
 
    def search
